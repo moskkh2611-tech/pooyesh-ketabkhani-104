@@ -1,0 +1,1539 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1559a6">
+<meta name="color-scheme" content="light">
+  <title>پویش کتابخوانی | نسخه ۱.۰</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+:root{--header:#1559a6;--primary:#1768bd;--accent:#19a6a0;--bg:#f2f6fb;--panel:#fff;--text:#172b43;--muted:#718096;--line:#e3eaf2;--danger:#d74747;--shadow:0 8px 24px rgba(22,54,91,.07);--font:'Vazirmatn',Tahoma,sans-serif;--fs:13px}
+*{box-sizing:border-box}html{font-size:var(--fs)}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:1rem;line-height:1.65;min-height:100vh}.topbar{background:var(--header);color:#fff;padding:14px clamp(14px,3vw,42px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 3px 14px #173b6430}.brand{display:flex;align-items:center;gap:13px}.brand-mark{width:45px;height:45px;border-radius:14px;background:#ffffff24;display:grid;place-items:center;font-size:26px;font-weight:800}.brand h1{font-size:clamp(17px,2vw,23px);margin:0;font-weight:800}.brand p{margin:2px 0 0;color:#dceaff;font-size:.9em}.header-meta{display:flex;gap:16px;align-items:center;font-size:.88em;color:#e4efff}.version{background:#ffffff20;padding:5px 11px;border-radius:20px}.tabs{display:flex;gap:6px;padding:12px clamp(14px,3vw,42px) 0;border-bottom:1px solid var(--line);background:var(--panel)}.tab{font:inherit;border:0;background:transparent;color:var(--muted);padding:11px 18px;border-bottom:3px solid transparent;cursor:pointer;font-weight:600}.tab.active{color:var(--primary);border-color:var(--primary)}main{max-width:1900px;margin:auto;padding:22px clamp(12px,2.5vw,36px) 36px}.tab-panel{display:none}.tab-panel.active{display:block}.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.stat-card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.stat-card{padding:16px 19px;display:grid;gap:3px}.stat-card span{color:var(--muted);font-size:.92em}.stat-card strong{font-size:1.9em;line-height:1.4;color:var(--primary)}.stat-card small{color:var(--muted)}.toolbar{display:flex;gap:12px;justify-content:space-between;align-items:center;margin:16px 0}.search-wrap{flex:1;min-width:200px}.search-wrap input{width:100%}input,select,textarea{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:9px 11px;min-width:0;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 13%,transparent)}label{display:grid;gap:5px;font-weight:600;font-size:.93em}label b{color:var(--danger)}label small{font-weight:400;color:var(--muted)}.toolbar-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid transparent;border-radius:9px;padding:9px 14px;font:inherit;font-weight:600;cursor:pointer;transition:.18s ease;white-space:nowrap}.btn:hover{transform:translateY(-1px);filter:brightness(.97)}.btn.primary{background:var(--primary);color:#fff}.btn.secondary{background:color-mix(in srgb,var(--primary) 8%,var(--panel));color:var(--primary);border-color:color-mix(in srgb,var(--primary) 15%,var(--line))}.btn.ghost{background:transparent;color:var(--muted);border-color:var(--line)}.btn.small{padding:6px 10px;font-size:.88em}.workspace{display:grid;grid-template-columns:minmax(330px,.82fr) minmax(0,1.6fr);gap:16px;align-items:start}.workspace.form-hidden{grid-template-columns:minmax(0,1fr)}.workspace.form-hidden .form-panel{display:none}.panel{padding:17px;min-width:0}.panel-heading,.section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.panel-heading h2,.section-title h2{margin:0;font-size:1.25em}.panel-heading p,.section-title p{margin:2px 0 0;color:var(--muted);font-size:.88em}.step{font-size:.78em;background:#eaf3ff;color:var(--primary);padding:5px 9px;border-radius:20px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-grid .wide{grid-column:1/-1}.form-grid textarea{resize:vertical}.form-actions{display:flex;gap:8px;margin-top:16px}.image-preview-wrap{display:flex;align-items:center;gap:12px;margin-top:12px}.image-preview-wrap img{width:76px;height:76px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.text-btn{border:0;background:none;color:var(--danger);font:inherit;cursor:pointer}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.filters select{flex:1;min-width:120px}.table-scroll{overflow:auto;max-height:min(66vh,850px);border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:.91em}th,td{padding:10px 11px;text-align:right;border-bottom:1px solid var(--line)}th{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 85%,var(--panel));z-index:1;color:#52677e;font-weight:700}tbody tr:hover{background:color-mix(in srgb,var(--primary) 4%,var(--panel))}.thumb{width:42px;height:42px;object-fit:cover;border-radius:8px;cursor:pointer;background:var(--bg)}.no-image{width:42px;height:42px;border-radius:8px;background:var(--bg);display:grid;place-items:center;color:#9aabba}.product-link{border:0;background:none;color:var(--primary);font:inherit;font-weight:600;cursor:pointer;padding:0}.status{display:inline-block;padding:3px 9px;border-radius:20px;font-size:.84em}.status.available{color:#16754e;background:#e7f7ef}.status.borrowed{color:#a25c08;background:#fff3df}.row-actions{display:flex;gap:5px}.row-actions button{font:inherit;border:1px solid var(--line);background:var(--panel);border-radius:7px;padding:4px 7px;cursor:pointer;color:var(--primary)}.row-actions .delete{color:var(--danger)}.empty{text-align:center;color:var(--muted);padding:32px!important}.table-footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.82em;padding:9px 2px 0}.section-title{margin-bottom:17px}.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.report-grid h3{margin:0 0 13px;font-size:1.1em}.report-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:15px}.report-stat{background:var(--bg);border-radius:9px;padding:11px}.report-stat strong{display:block;font-size:1.45em;color:var(--primary)}.report-stat span{font-size:.83em;color:var(--muted)}.group-report{margin-top:12px;max-height:250px;overflow:auto}.group-row{display:flex;justify-content:space-between;padding:8px 2px;border-bottom:1px solid var(--line)}.muted{color:var(--muted)}.stack-actions{display:flex;gap:8px;flex-wrap:wrap}.notice{background:#fff8e8;color:#805b19;border-right:3px solid #e7b64f;border-radius:7px;padding:9px 11px;font-size:.85em;margin:14px 0 0}.appearance-panel>label{margin-bottom:11px}.color-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:10px 0}.color-grid input{height:38px;padding:3px;width:100%}.modal{position:fixed;inset:0;background:#12243b80;z-index:20;display:none;align-items:center;justify-content:center;padding:16px}.modal.open{display:flex}.modal-card{background:var(--panel);color:var(--text);width:min(640px,100%);max-height:90vh;overflow:auto;border-radius:15px;padding:18px;box-shadow:0 20px 70px #0003}.large-modal{width:min(1000px,100%)}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:13px}.modal-head h2{margin:0;font-size:1.2em}.modal-head p{margin:3px 0;color:var(--muted);font-size:.88em}.icon-btn{border:0;background:var(--bg);border-radius:8px;font-size:24px;width:35px;height:35px;cursor:pointer;color:var(--muted)}.import-options{margin:10px 0}.preview-scroll{max-height:52vh}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.valid{color:#16754e}.invalid{color:var(--danger)}.detail-image{max-width:100%;max-height:260px;object-fit:contain;border-radius:10px;margin-bottom:12px}.detail-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.detail-item{background:var(--bg);padding:9px;border-radius:8px;overflow-wrap:anywhere}.detail-item strong{display:block;color:var(--muted);font-size:.8em}.toast-region{position:fixed;bottom:18px;left:18px;z-index:40;display:grid;gap:8px}.toast{background:#173653;color:#fff;padding:10px 15px;border-radius:9px;box-shadow:var(--shadow);animation:slide .2s ease}.toast.error{background:#a72f35}@keyframes slide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}footer{text-align:center;color:var(--muted);padding:18px;border-top:1px solid var(--line);font-size:.85em}footer span{margin:0 5px}
+body[data-theme="dark"]{--bg:#101a27;--panel:#192638;--text:#e5edf7;--muted:#9bacc0;--line:#2b3b50;--shadow:0 8px 24px #0002}body[data-theme="dark"] th{color:#bdcadd}body[data-theme="dark"] .notice{background:#3d3522;color:#f3d99a}body[data-theme="dark"] .step{background:#243b57}
+@media(max-width:1050px){.workspace{grid-template-columns:minmax(290px,.85fr) minmax(0,1.3fr)}.summary-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:780px){.workspace{grid-template-columns:1fr}.workspace .form-panel{order:0}.workspace .table-panel{order:1}.toolbar{align-items:stretch;flex-direction:column}.toolbar-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar-actions .btn{white-space:normal}.report-grid{grid-template-columns:1fr}.header-meta{font-size:.8em}.table-scroll{max-height:60vh}}
+@media(max-width:480px){main{padding:13px 9px 24px}.topbar{padding:12px}.brand-mark{width:38px;height:38px}.header-meta{width:100%;justify-content:space-between}.summary-grid{gap:8px}.stat-card{padding:11px}.stat-card strong{font-size:1.55em}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.panel{padding:12px}.filters select{min-width:calc(50% - 5px)}.color-grid{grid-template-columns:repeat(2,1fr)}.detail-list{grid-template-columns:1fr}.report-stats{grid-template-columns:repeat(2,1fr)}}
+@media print{.topbar,.tabs,.toolbar,.form-panel,.filters,.row-actions,footer,.btn{display:none!important}body{background:#fff;color:#000}.panel,.stat-card{box-shadow:none;border:0}.workspace{display:block}.table-scroll{max-height:none;overflow:visible}th{position:static}}
+
+/* Authentication and account management */
+body:not(.authenticated) > header, body:not(.authenticated) > nav, body:not(.authenticated) > main, body:not(.authenticated) > footer {display:none!important}
+.auth-screen{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,var(--header),var(--primary))}
+.auth-screen[hidden]{display:none}
+.auth-card{width:min(430px,100%);background:var(--panel);color:var(--text);padding:32px;border-radius:20px;box-shadow:0 20px 70px #0003;display:grid;gap:15px}
+.auth-card h1{font-size:22px;margin:0}.auth-card p{margin:0;color:#738096}
+.auth-card label,.auth-modal label{display:grid;gap:7px;font-weight:600}
+.auth-card input,.auth-modal input:not([type=checkbox]),.auth-modal select{width:100%;padding:11px;border:1px solid #ccd5e1;border-radius:9px;background:var(--panel);color:var(--text)}
+.auth-logo{width:55px;height:55px;border-radius:16px;background:var(--primary);color:white;display:grid;place-items:center;font-size:28px;font-weight:bold}
+.auth-error{color:#c0392b!important}
+.account-tools{display:flex;align-items:center;gap:8px;justify-content:flex-start;padding:10px 18px;background:var(--panel);border-bottom:1px solid #dce4ee;flex-wrap:wrap}
+.account-tools[hidden]{display:none}
+.auth-modal{max-width:720px}.auth-modal form{display:grid;gap:13px;margin-bottom:18px}
+.permission-grid{display:flex;gap:18px;flex-wrap:wrap;padding:12px;background:var(--bg);border-radius:10px}
+.permission-grid label{display:flex;align-items:center;gap:7px}
+.auth-modal [hidden]{display:none!important}
+
+/* Refined account/profile experience */
+.brand-mark{overflow:hidden;border:1px solid #ffffff55;box-shadow:0 5px 16px #082d5b30}
+.brand-mark img{width:100%;height:100%;object-fit:cover;display:block}
+.brand-mark .avatar-fallback{width:100%;height:100%;display:grid;place-items:center}
+.auth-logo{border-radius:18px;box-shadow:0 8px 22px color-mix(in srgb,var(--primary) 25%,transparent)}
+.tabs{position:sticky;top:0;z-index:8;box-shadow:0 5px 18px #18395a0a;overflow-x:auto}
+.tab{border-radius:10px 10px 0 0;white-space:nowrap}
+.tab.active{background:color-mix(in srgb,var(--primary) 7%,var(--panel))}
+.account-tools{position:sticky;top:51px;z-index:7;box-shadow:0 4px 14px #18395a0a}
+#accountWelcome{display:flex;align-items:center;gap:9px;font-weight:700;margin-left:auto}
+.welcome-avatar,.user-table-avatar{width:36px;height:36px;border-radius:50%;overflow:hidden;display:inline-grid;place-items:center;background:color-mix(in srgb,var(--primary) 13%,var(--panel));color:var(--primary);font-weight:800;vertical-align:middle}
+.welcome-avatar img,.user-table-avatar{width:36px;height:36px;object-fit:cover}
+.avatar-fallback{width:36px;height:36px;border-radius:50%;display:inline-grid;place-items:center;background:color-mix(in srgb,var(--primary) 13%,var(--panel));color:var(--primary);font-weight:800}
+.profile-photo-editor{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:13px;background:var(--bg);border-radius:13px;margin-bottom:8px}
+.profile-photo-editor img,.new-user-photo img{width:82px;height:82px;object-fit:cover;border-radius:50%;background:var(--panel);border:3px solid color-mix(in srgb,var(--primary) 20%,var(--panel))}
+.profile-photo-editor img:not([src]),.profile-photo-editor img[src=""]{visibility:hidden}
+.new-user-photo{display:flex;align-items:center;gap:15px;margin:6px 0 13px;padding:12px;background:var(--bg);border-radius:12px}
+.user-table-avatar{border-radius:50%}
+.auth-card{backdrop-filter:blur(12px);border:1px solid #ffffff88}
+.auth-screen{background:radial-gradient(circle at 15% 15%,#ffffff30,transparent 28%),linear-gradient(135deg,#123c70,#1768bd 55%,#11a6a0)}
+@media(max-width:600px){.account-tools{top:48px}.tabs{padding-inline:8px}.tab{padding:10px 12px}.profile-photo-editor{align-items:flex-start}.account-tools{gap:7px}}
+
+/* New dimensions/specification columns and Persian dates */
+#assetRows td.spec-cell{max-width:240px;min-width:150px;white-space:normal;line-height:1.8;overflow-wrap:anywhere}
+#assetRows td{vertical-align:middle}
+#loanDate{direction:ltr;text-align:right;font-variant-numeric:tabular-nums}
+.permission-heading{font-weight:800;color:var(--primary);margin-top:4px}
+.permission-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.permission-grid label{display:flex;align-items:flex-start;gap:9px;padding:11px;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.permission-grid label span{display:grid;gap:4px}.permission-grid small{font-weight:400;color:var(--muted);line-height:1.5}
+.thumb{cursor:zoom-in}
+
+/* Version 4.6.3: administrator tools and safe cleanup */
+.admin-menu-wrap{position:relative;display:inline-flex;align-items:center}
+.dots-btn{width:36px;height:36px;border:1px solid #ffffff66;border-radius:10px;background:#ffffff18;color:inherit;font-size:25px;line-height:1;cursor:pointer}
+.admin-dropdown{position:absolute;top:calc(100% + 8px);left:0;z-index:60;min-width:230px;padding:7px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 35px #102b4b30;display:grid;gap:4px}
+.admin-dropdown[hidden]{display:none}
+.admin-dropdown button{border:0;background:transparent;text-align:right;padding:10px;border-radius:8px;color:var(--text);font:inherit;cursor:pointer}
+.admin-dropdown button:hover{background:var(--bg);color:var(--primary)}
+.data-tools-card{width:min(620px,100%)}
+.danger-section{padding:13px;margin:12px 0;background:var(--bg);border:1px solid var(--line);border-radius:12px;display:grid;gap:10px}
+.danger-section h3{margin:0;font-size:1em}
+.danger-section p{margin:0;line-height:1.8}
+.danger-btn{background:#b52e38;color:#fff;border:0;border-radius:9px;padding:10px 14px;font:inherit;cursor:pointer;width:max-content;max-width:100%}
+.danger-btn:hover{background:#92232c}
+.header-meta{gap:10px}
+#newUserBtn{margin-top:9px}
+@media(max-width:600px){.admin-dropdown{left:auto;right:0}.data-tools-card{padding:13px}}
+
+.import-thumb{width:42px;height:42px;object-fit:cover;border-radius:7px;display:block}
+
+/* v4.6.4: use the full workspace width for read-only users */
+.workspace.form-hidden{grid-template-columns:minmax(0,1fr)!important}
+.workspace.form-hidden .table-panel{width:100%;min-width:0}
+.workspace.form-hidden .table-scroll{width:100%;max-width:100%;overflow:auto}
+.workspace.form-hidden table{min-width:1080px}
+
+/* Data tools checkbox layout */
+.danger-section label:has(input[type="checkbox"]){display:flex;align-items:center;gap:9px;font-weight:500;line-height:1.7}.danger-section input[type="checkbox"]{width:17px;height:17px;min-width:17px;margin:0;accent-color:var(--primary)}
+
+/* Karimi Library v1.0 — mobile-first application shell */
+.desktop-tabs{display:none!important}
+.mobile-bottom-nav{position:fixed;z-index:90;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:7px 6px calc(7px + env(safe-area-inset-bottom));background:var(--panel);border-top:1px solid var(--line);box-shadow:0 -5px 22px #142b4614}
+.mobile-bottom-nav button{border:0;background:transparent;color:var(--muted);display:grid;justify-items:center;gap:1px;padding:4px 2px;border-radius:10px;font:inherit;cursor:pointer}
+.mobile-bottom-nav button span{font-size:21px;line-height:1.25;font-weight:700}
+.mobile-bottom-nav button small{font-size:10px;font-weight:600}
+.mobile-bottom-nav button.active{color:var(--primary);background:color-mix(in srgb,var(--primary) 9%,var(--panel))}
+main{padding-bottom:105px}
+[data-mobile-page][hidden]{display:none!important}
+#summaryCards{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:8px}
+.stat-card{min-height:108px;align-content:center}
+.stat-card strong{font-size:1.8em}
+.topbar{position:sticky;top:0;z-index:30;padding:10px 14px}
+.brand{gap:10px}.brand-mark{width:42px;height:42px}.brand h1{font-size:17px}.brand p{font-size:11px}
+.header-meta{gap:7px}.version{font-size:11px}
+.account-tools{top:62px;padding:7px 12px}
+#accountWelcome{font-size:12px}
+.panel{border-radius:14px}
+.panel-heading{align-items:flex-start}
+.form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.form-grid label{font-size:12px}
+input,select,textarea{min-height:43px;font-size:14px}
+.btn{min-height:42px;padding:9px 12px}
+.toolbar{display:grid;gap:9px}
+.toolbar-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.workspace{display:block}
+.workspace .form-panel,.workspace .table-panel{margin-bottom:12px}
+.table-scroll{max-height:65vh}
+#assetRows td{font-size:12px}
+#assetRows td:last-child .row-actions{flex-direction:column}
+.filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.filters select{min-width:0;width:100%}
+.report-grid{grid-template-columns:1fr}
+.report-grid>.panel{margin-bottom:12px}
+.stack-actions{display:grid;grid-template-columns:1fr 1fr}
+.stack-actions .btn{white-space:normal;min-height:50px}
+.modal{padding:8px;align-items:flex-end}
+.modal-card{max-height:92dvh;border-radius:18px 18px 10px 10px;padding:14px}
+.detail-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.toast-region{bottom:calc(78px + env(safe-area-inset-bottom));left:10px;right:10px}
+footer{padding-bottom:100px}
+@media(min-width:760px){
+  .mobile-bottom-nav{left:50%;right:auto;transform:translateX(-50%);width:min(620px,100%);border:1px solid var(--line);border-bottom:0;border-radius:16px 16px 0 0}
+  #summaryCards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .workspace{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.6fr)}
+  .toolbar{display:flex;align-items:center}
+  .toolbar-actions{display:flex}
+  .report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .modal{align-items:center}
+}
+@media(max-width:390px){.form-grid{grid-template-columns:1fr}.stack-actions{grid-template-columns:1fr}.brand p{display:none}.header-meta{margin-right:auto}.detail-list{grid-template-columns:1fr}}
+
+
+/* Fix local Android/Samsung Browser forced-dark rendering */
+html, body { color-scheme: light !important; }
+@media (prefers-color-scheme: dark) { body:not([data-theme="dark"]) { --bg:#f2f6fb; --panel:#fff; --text:#172b43; --muted:#718096; --line:#e3eaf2; } }
+body:not([data-theme="dark"]), body:not([data-theme="dark"]) input, body:not([data-theme="dark"]) select, body:not([data-theme="dark"]) textarea { background-color:var(--panel); color:var(--text); }
+body:not([data-theme="dark"]) { background:var(--bg); }
+
+/* Adaptive orientation layouts for phones/tablets */
+@media (max-width: 900px) and (orientation: landscape) {
+  main { padding: 10px 12px 86px; } .topbar { padding: 8px 12px; }
+  .brand-mark { width: 34px; height: 34px; } .brand h1 { font-size: 16px; }
+  #summaryCards { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .workspace { display:grid; grid-template-columns: minmax(250px,.75fr) minmax(0,1.5fr); gap:10px; }
+  .workspace .form-panel,.workspace .table-panel { margin-bottom:0; } .form-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .report-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .toolbar { display:flex; flex-direction:row; align-items:center; } .toolbar-actions { display:flex; flex-wrap:wrap; }
+  .table-scroll { max-height:48vh; } .mobile-bottom-nav { padding-top:4px; padding-bottom:calc(4px + env(safe-area-inset-bottom)); }
+  .mobile-bottom-nav button span { font-size:18px; } .mobile-bottom-nav button small { font-size:9px; } .modal { align-items:center; } .modal-card { max-height:85dvh; }
+}
+@media (max-width: 900px) and (orientation: portrait) {
+  main { padding:12px 9px 105px; } .workspace { display:block; } .workspace .form-panel,.workspace .table-panel { margin-bottom:12px; }
+  #summaryCards { grid-template-columns:repeat(2,minmax(0,1fr)); } .report-grid { grid-template-columns:1fr; } .mobile-bottom-nav { grid-template-columns:repeat(5,1fr); }
+}
+
+.recipient-extra{border:1px solid var(--border,#d8dee8);border-radius:12px;padding:10px 12px;margin:4px 0}.recipient-extra summary{cursor:pointer;font-weight:600;color:var(--text)}.recipient-contact-grid{padding-top:12px}
+
+.age-group-field{display:grid;gap:7px;font-size:.93em;font-weight:600}
+.age-group-title{font-size:inherit}
+.age-group-options{display:flex;flex-wrap:wrap;gap:7px}
+.age-group-options label{display:flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:5px 9px;font-weight:500;cursor:pointer}
+.age-group-options input[type=checkbox]{width:16px;height:16px;min-width:16px;margin:0;accent-color:var(--primary)}
+.age-other-field{margin-top:2px}
+.age-other-field[hidden]{display:none}
+</style>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  
+  
+  
+  
+  
+  
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-label="عکس پروفایل">ص</div>
+    <div><h1>پویش کتابخوانی</h1><p>مدیریت کتاب‌ها، اعضا و امانت‌ها</p></div>
+  </div>
+  <div class="header-meta"><span class="version">نسخه ۱.۰</span><span></span><div class="admin-menu-wrap" id="adminMenuWrap" hidden>
+    <button class="dots-btn" id="adminMenuBtn" type="button" aria-label="گزینه‌های مدیریت" aria-expanded="false">⋮</button>
+    <div class="admin-dropdown" id="adminDropdown" hidden>
+      <button type="button" id="openRefreshToolsBtn">رفرش اطلاعات (بدون حذف)</button>
+      <button type="button" id="openDataToolsBtn">پاک‌سازی اطلاعات</button>
+      <button type="button" id="backupQuickBtn">دریافت پشتیبان پیش از پاک‌سازی</button>
+    </div>
+  </div></div>
+</header>
+
+<nav class="tabs desktop-tabs" aria-label="صفحه‌های برنامه">
+  <button class="tab active" data-tab="assets">کتاب‌ها</button>
+  <button class="tab" data-tab="reports">گزارش‌ها و تنظیمات</button>
+</nav>
+
+<main>
+<section id="assets" class="tab-panel active">
+  <div class="summary-grid" id="summaryCards" data-mobile-page="dashboard">
+    <article class="stat-card"><span>مجموع کتاب‌ها</span><strong id="totalCount">۰</strong><small>تمام کتاب‌های ثبت‌شده</small></article>
+    <article class="stat-card"><span>کتاب‌های موجود</span><strong id="availableCount">۰</strong><small>آمادهٔ امانت</small></article>
+    <article class="stat-card"><span>کتاب‌های امانت‌داده‌شده</span><strong id="borrowedCount">۰</strong><small>نزد امانت‌گیرندگان</small></article>
+    <article class="stat-card"><span>موضوع‌ها</span><strong id="departmentCount">۰</strong><small>موضوع‌های دارای کتاب</small></article>
+  </div>
+
+  <div class="toolbar" data-mobile-page="books">
+    <div class="search-wrap"><input id="searchInput" type="search" placeholder="جستجو بر اساس کد، عنوان، نویسنده، موضوع یا امانت‌گیرنده…" aria-label="جستجو"></div>
+    <div class="toolbar-actions">
+      <button class="btn secondary" id="toggleFormBtn">پنهان‌کردن فرم</button>
+      <button class="btn secondary" id="importBtn">ورود از اکسل</button>
+      <button class="btn primary" id="newAssetBtn">＋ ثبت کتاب</button>
+      <input id="excelFile" type="file" accept=".xlsx,.xls,.csv" hidden>
+    </div>
+  </div>
+
+  <div class="workspace" id="workspace" data-mobile-page="books">
+    <section class="panel form-panel" id="formPanel">
+      <div class="panel-heading"><div><h2 id="formTitle">ثبت کتاب جدید</h2><p>اطلاعات کتاب را وارد کنید</p></div><span class="step">ثبت کتاب</span></div>
+      <form id="assetForm">
+        <input type="hidden" id="assetId">
+        <div class="form-grid">
+          <label>کد کتاب <b>*</b><input id="code" required maxlength="80" placeholder="مثلاً ۲.۱۰"></label>
+          <label>عنوان کتاب <b>*</b><input id="product" required maxlength="180" placeholder="نام کتاب"></label>
+          <label>موضوع<input id="department" maxlength="120"></label>
+          <div class="age-group-field">
+            <span class="age-group-title">رده سنی (امکان انتخاب چند مورد)</span>
+            <div class="age-group-options" id="ageGroupOptions">
+              <label><input type="checkbox" value="خردسال"> خردسال</label>
+              <label><input type="checkbox" value="کودک"> کودک</label>
+              <label><input type="checkbox" value="نوجوان"> نوجوان</label>
+              <label><input type="checkbox" value="جوان"> جوان</label>
+              <label><input type="checkbox" value="بزرگسال"> بزرگسال</label>
+              <label><input type="checkbox" value="همهٔ سنین"> همهٔ سنین</label>
+              <label><input type="checkbox" value="سایر" id="ageOtherToggle"> سایر</label>
+            </div>
+            <label class="age-other-field" id="ageOtherField" hidden>سن (اختیاری)<input id="ageOtherText" type="number" min="0" max="120" inputmode="numeric" placeholder="سن را به عدد وارد کنید"></label>
+          </div>
+          <label>ناشر<input id="storage" maxlength="120"></label>
+          <label>قفسه / محل نگهداری<input id="location" maxlength="180"></label>
+          <label>نویسنده<input id="dimensions" maxlength="160" placeholder="نام نویسنده"></label>
+          <label>امانت‌گیرنده<input id="recipient" maxlength="150"></label>
+          <details class="recipient-extra wide"><summary>مشخصات تکمیلی امانت‌گیرنده (اختیاری)</summary><div class="form-grid recipient-contact-grid">
+            <label>شماره تلفن امانت‌گیرنده<input id="recipientPhone" type="tel" inputmode="tel" maxlength="30" placeholder="اختیاری"></label>
+            <label>شماره تلفن پشتیبان<input id="recipientBackupPhone" type="tel" inputmode="tel" maxlength="30" placeholder="اختیاری"></label>
+            <label>آیدی شبکه اجتماعی<input id="recipientSocial" maxlength="100" placeholder="مثلاً آیدی تلگرام یا اینستاگرام"></label>
+          </div></details>
+          <label>تاریخ امانت (شمسی)<input id="loanDate" type="text" inputmode="numeric" placeholder="۱۴۰۵/۰۸/۱۱" autocomplete="off"></label>
+          <label>ساعت تحویل<input id="loanTime" type="time"></label>
+          <label>تاریخ بازگشت (شمسی)<input id="returnDate" type="text" inputmode="numeric" placeholder="۱۴۰۵/۰۸/۱۱" autocomplete="off"></label>
+          <label>ساعت بازگشت<input id="returnTime" type="time"></label>
+          <label>وضعیت کتاب<select id="loanStatus"><option value="available">موجود</option><option value="borrowed">امانت‌داده‌شده</option></select></label>
+          
+          <label class="wide">تصویر جلد کتاب<input id="imageFile" type="file" accept="image/*"><small>تصویر جلد در حافظهٔ همین دستگاه ذخیره می‌شود.</small></label>
+        </div>
+        <div class="image-preview-wrap" id="imagePreviewWrap" hidden><img id="imagePreview" alt="پیش‌نمایش تصویر"><button type="button" class="text-btn" id="removeImageBtn">حذف تصویر انتخاب‌شده</button></div>
+        <div class="form-actions"><button class="btn primary" type="submit" id="saveAssetBtn">ذخیره کتاب</button><button class="btn ghost" type="button" id="resetFormBtn">پاک‌کردن فرم</button></div>
+      </form>
+    </section>
+
+    <section class="panel table-panel" id="tablePanel">
+      <div class="panel-heading"><div><h2>فهرست کتاب‌ها</h2><p id="resultCount">۰ مورد</p></div><button class="btn small secondary" id="clearFiltersBtn">پاک‌کردن فیلترها</button></div>
+      <div class="filters">
+        <select id="departmentFilter"><option value="">تمام موضوع‌ها</option></select>
+        <select id="storageFilter"><option value="">تمام ناشرها</option></select>
+        <select id="locationFilter"><option value="">تمام قفسه‌ها</option></select>
+        <select id="statusFilter"><option value="">تمام وضعیت‌ها</option><option value="available">موجود</option><option value="borrowed">امانت‌داده‌شده</option></select>
+        <select id="sortOrder" aria-label="ترتیب"><option value="asc">کد: صعودی</option><option value="desc">کد: نزولی</option></select>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>تصویر</th><th>کد</th><th>عنوان کتاب</th><th>موضوع</th><th>رده سنی</th><th>نویسنده</th><th>ناشر / قفسه</th><th>امانت‌گیرنده</th><th>تاریخ امانت</th><th>وضعیت</th><th>عملیات</th></tr></thead>
+          <tbody id="assetRows"><tr><td colspan="11" class="empty">در حال بارگذاری…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="table-footer"><span id="tableHint">برای دیدن اطلاعات کامل، روی تصویر یا عنوان کتاب کلیک کنید.</span><span id="storageInfo"></span></div>
+    </section>
+  </div>
+</section>
+
+<section id="reports" class="tab-panel">
+  <div class="section-title"><div><h2>گزارش‌ها و تنظیمات</h2><p>آمار، خروجی‌ها، بازیابی و تنظیمات ظاهر برنامه</p></div></div>
+  <div class="report-grid">
+    <article class="panel" data-mobile-page="reports"><h3>گزارش خلاصه</h3><div id="reportSummary" class="report-stats"></div><button class="btn secondary" id="printReportBtn">چاپ گزارش</button></article>
+    <article class="panel" data-mobile-page="reports"><h3>گزارش موضوعی</h3><label>گروه‌بندی بر اساس<select id="groupBy"><option value="department">موضوع</option><option value="storage">ناشر</option><option value="recipient">امانت‌گیرنده</option></select></label><div id="groupReport" class="group-report"></div></article>
+    <article class="panel" data-mobile-page="settings"><h3>خروجی و پشتیبان‌گیری</h3><p class="muted">برای انتقال اطلاعات به دستگاه دیگر، فایل پشتیبان JSON را ذخیره کنید.</p><div class="stack-actions"><button class="btn primary" id="backupBtn">دریافت پشتیبان JSON</button><button class="btn secondary" id="restoreBtn">بازیابی از JSON</button><input id="restoreFile" type="file" accept=".json,application/json" hidden><button class="btn secondary" id="exportBtn">خروجی اکسل فهرست فیلترشده</button><button class="btn secondary" id="exportFilteredPdfBtn">خروجی PDF فهرست فیلترشده</button><button class="btn secondary" id="exportCsvBtn">خروجی CSV</button><button class="btn secondary" id="exportAllExcelBtn">خروجی کامل اکسل</button><button class="btn secondary" id="exportAllPdfBtn">خروجی PDF کامل</button><button class="btn secondary" id="exportOperationsExcelBtn">خروجی اکسل کامل عملیات‌ها</button><button class="btn secondary" id="exportOperationsPdfBtn">خروجی PDF کامل عملیات‌ها</button></div><p class="notice">اطلاعات در پروفایل مرورگر و همین دستگاه ذخیره می‌شود؛ پاک‌کردن داده‌های مرورگر ممکن است آن را حذف کند. پشتیبان منظم بگیرید.</p></article>
+    <article class="panel" data-mobile-page="loans"><h3>تاریخچهٔ امانت و بازگشت</h3><p class="muted">آخرین رویدادهای ثبت‌شده برای امانت و بازگشت کتاب‌ها</p><div id="loanHistoryList" class="group-report"><p class="muted">هنوز رویدادی ثبت نشده است.</p></div></article>
+    <article class="panel appearance-panel" data-mobile-page="settings"><h3>تنظیمات ظاهر برنامه</h3>
+      <label>قالب آماده<select id="themeSelect"><option value="solha">آبی کلاسیک</option><option value="turquoise">فیروزه‌ای</option><option value="green">سبز ملایم</option><option value="dark">حالت تاریک</option><option value="custom">قالب سفارشی</option></select></label>
+      <div class="color-grid">
+        <label>رنگ سربرگ<input type="color" id="headerColor"></label><label>رنگ اصلی<input type="color" id="primaryColor"></label><label>رنگ تأکیدی<input type="color" id="accentColor"></label><label>پس‌زمینه<input type="color" id="backgroundColor"></label><label>رنگ پنل<input type="color" id="panelColor"></label><label>رنگ متن<input type="color" id="textColor"></label>
+      </div>
+      <label>فونت<select id="fontFamily"><option value="Vazirmatn, Tahoma, sans-serif">وزیرمتن / پیش‌فرض</option><option value="Tahoma, sans-serif">Tahoma</option><option value="Arial, sans-serif">Arial</option><option value="system-ui, sans-serif">System UI</option></select></label>
+      <label>اندازهٔ فونت: <strong id="fontSizeValue">۱۳</strong> پیکسل<input id="fontSize" type="range" min="8" max="16" value="13"></label>
+      <label>بارگذاری فونت (TTF / OTF / TTC)<input type="file" id="fontFile" accept=".ttf,.otf,.ttc,font/ttf,font/otf"></label>
+      <button class="btn primary" id="saveAppearanceBtn">ذخیره تنظیمات ظاهر</button>
+      <div class="panel" id="passwordModePanel" style="margin-top:14px;padding:12px"><h3 style="margin-top:0">امنیت ورود</h3><label style="display:flex;align-items:center;gap:9px"><input type="checkbox" id="disableLoginPassword" style="width:22px;height:22px"> حذف صفحهٔ ورود و بازکردن برنامه بدون رمز</label><p class="notice">هشدار: با فعال‌کردن این گزینه، هر فردی که به این دستگاه دسترسی داشته باشد می‌تواند وارد کتابخانه شود. فقط برای دستگاه شخصی یا محیط کنترل‌شده استفاده کنید.</p></div>
+    </article>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="importModal" aria-hidden="true"><div class="modal-card large-modal"><div class="modal-head"><div><h2>پیش‌نمایش ورود اطلاعات اکسل</h2><p id="importMeta"></p></div><button class="icon-btn" data-close="importModal" aria-label="بستن">×</button></div><div class="import-options"><label>رفتار کدهای تکراری<select id="duplicateMode"><option value="skip">ردکردن موارد تکراری</option><option value="update">به‌روزرسانی موارد موجود</option><option value="all">ورود همه (با کد جدید تکراری)</option></select></label></div><div class="table-scroll preview-scroll"><table><thead><tr><th>تصویر</th><th>کد</th><th>عنوان کتاب</th><th>موضوع</th><th>رده سنی</th><th>ناشر</th><th>قفسه</th><th>نویسنده</th><th>وضعیت</th><th>اعتبار</th></tr></thead><tbody id="importPreviewRows"></tbody></table></div><div class="modal-actions"><button class="btn ghost" data-close="importModal">لغو</button><button class="btn primary" id="confirmImportBtn">تأیید و ثبت اطلاعات</button></div></div></div>
+
+<div class="modal" id="detailModal" aria-hidden="true"><div class="modal-card detail-card"><div class="modal-head"><h2>جزئیات کتاب</h2><button class="icon-btn" data-close="detailModal">×</button></div><div id="assetDetails"></div></div></div>
+<div class="modal" id="refreshToolsModal" aria-hidden="true"><div class="modal-card data-tools-card">
+  <div class="modal-head"><div><h2>رفرش انتخابی اطلاعات</h2><p>رفرش فقط اطلاعات را دوباره از پایگاه داده می‌خواند و هیچ رکوردی را حذف یا تغییر نمی‌دهد.</p></div><button class="icon-btn" data-close="refreshToolsModal" aria-label="بستن">×</button></div>
+  <section class="danger-section"><h3>مواردی که دوباره بارگذاری شوند</h3>
+    <label><input type="checkbox" class="refresh-choice" value="assets" checked> کتاب‌ها و مشخصات کتاب (شامل وضعیت کتاب)</label>
+    <label><input type="checkbox" class="refresh-choice" value="history" checked> سوابق و تاریخچه عملیات</label>
+    <label><input type="checkbox" class="refresh-choice" value="users"> کاربران و سطح دسترسی</label>
+    <label><input type="checkbox" class="refresh-choice" value="appearance"> تنظیمات ظاهر برنامه</label>
+    <button class="btn primary" id="runSelectedRefreshBtn" type="button">اجرای رفرش انتخاب‌شده</button>
+  </section>
+  <p class="notice">برای رفرش، هیچ‌کدام از اطلاعات ذخیره‌شده پاک نمی‌شوند.</p>
+</div></div>
+<div class="modal" id="dataToolsModal" aria-hidden="true"><div class="modal-card data-tools-card">
+  <div class="modal-head"><div><h2>مدیریت و پاک‌سازی اطلاعات</h2><p>پاک‌سازی انتخابی یا بازنشانی کامل؛ پیش از اجرا، گزینه‌ها و پیام تأیید را با دقت بررسی کنید.</p></div><button class="icon-btn" data-close="dataToolsModal" aria-label="بستن">×</button></div>
+  <section class="danger-section"><h3>پاک‌سازی انتخابی</h3><p class="muted">فقط گزینه‌هایی که انتخاب می‌کنید پاک می‌شوند. برای حذف تصاویر یا امانت‌ها، مشخصات کتاب باقی می‌ماند.</p>
+    <label><input type="checkbox" class="clean-choice" value="assets"> تمام کتاب‌ها و مشخصات کتاب</label>
+    <label><input type="checkbox" class="clean-choice" value="images"> تصاویر جلد کتاب‌ها</label>
+    <label><input type="checkbox" class="clean-choice" value="loans"> اطلاعات امانت‌ها و تحویل‌ها (بازگرداندن وضعیت به موجود)</label>
+    <label><input type="checkbox" class="clean-choice" value="users"> کاربران عادی و سطح دسترسی آن‌ها (مدیر اصلی حفظ می‌شود)</label>
+    <label><input type="checkbox" class="clean-choice" value="history"> سوابق و تاریخچه تمام عملیات</label>
+    <label><input type="checkbox" class="clean-choice" value="appearance"> تنظیمات ظاهر برنامه</label>
+    <button class="btn danger-btn" id="cleanSelectedDataBtn" type="button">پاک‌سازی موارد انتخاب‌شده</button>
+  </section>
+  <section class="danger-section"><h3>بازنشانی کامل کتابخانه</h3><p class="muted">تمام کتاب‌ها، تصاویر جلد، امانت‌ها، کاربران، سوابق و تنظیمات حذف می‌شوند. پس از راه‌اندازی مجدد، برنامه به وضعیت اولیه برمی‌گردد و حساب مدیر پیش‌فرض دوباره ساخته می‌شود.</p><button class="btn danger-btn" id="clearAllAssetsBtn" type="button">پاک‌سازی کامل همه اطلاعات برنامه</button></section>
+  <p class="notice">پیشنهاد می‌شود قبل از پاک‌سازی، از بخش پشتیبان‌گیری فایل JSON دریافت کنید.</p>
+</div></div>
+<div class="toast-region" id="toastRegion" aria-live="polite"></div>
+<nav class="mobile-bottom-nav" aria-label="ناوبری اصلی">
+  <button type="button" data-mobile-target="dashboard" class="active"><span>⌂</span><small>خانه</small></button>
+  <button type="button" data-mobile-target="books"><span>▤</span><small>کتاب‌ها</small></button>
+  <button type="button" data-mobile-target="loans"><span>↔</span><small>امانت‌ها</small></button>
+  <button type="button" data-mobile-target="reports"><span>▥</span><small>گزارش</small></button>
+  <button type="button" data-mobile-target="settings"><span>⚙</span><small>تنظیمات</small></button>
+</nav>
+<footer>پویش کتابخوانی <span>نسخهٔ ۱.۰</span> · نسخه مستقل اندروید</footer>
+<script>if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
+<script>/* inline database.js */
+/* IndexedDB persistence layer */
+const DB_NAME = "karimi_library_v1";
+const DB_VERSION = 2;
+let dbInstance;
+
+function openDatabase() {
+  if (dbInstance) return Promise.resolve(dbInstance);
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if (!db.objectStoreNames.contains("assets")) {
+        const store = db.createObjectStore("assets", { keyPath: "id", autoIncrement: true });
+        store.createIndex("code", "code", { unique: false });
+        store.createIndex("department", "department", { unique: false });
+      }
+      if (!db.objectStoreNames.contains("settings")) db.createObjectStore("settings", { keyPath: "key" });
+      if (!db.objectStoreNames.contains("history")) {
+        const history = db.createObjectStore("history", { keyPath: "id", autoIncrement: true });
+        history.createIndex("assetId", "assetId", { unique: false });
+        history.createIndex("createdAt", "createdAt", { unique: false });
+      }
+    };
+    request.onsuccess = () => { dbInstance = request.result; resolve(dbInstance); };
+    request.onerror = () => reject(request.error || new Error("خطا در بازکردن پایگاه داده"));
+    request.onblocked = () => reject(new Error("پایگاه داده توسط زبانهٔ دیگری مسدود شده است."));
+  });
+}
+function storeRequest(storeName, mode, action) {
+  return openDatabase().then(db => new Promise((resolve, reject) => {
+    const tx = db.transaction(storeName, mode);
+    const store = tx.objectStore(storeName);
+    let req;
+    try { req = action(store); } catch (e) { reject(e); return; }
+    if (req) { req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); }
+    else { tx.oncomplete = () => resolve(true); tx.onerror = () => reject(tx.error); }
+  }));
+}
+function clearEntireDatabase() {
+  return openDatabase().then(db => new Promise((resolve, reject) => {
+    const names = ["assets", "settings", "history"];
+    const tx = db.transaction(names, "readwrite");
+    names.forEach(name => tx.objectStore(name).clear());
+    tx.oncomplete = () => resolve(true);
+    tx.onerror = () => reject(tx.error || new Error("پاک‌سازی پایگاه داده ناموفق بود"));
+    tx.onabort = () => reject(tx.error || new Error("عملیات پاک‌سازی لغو شد"));
+  }));
+}
+const DB = {
+  all: () => storeRequest("assets", "readonly", s => s.getAll()),
+  get: id => storeRequest("assets", "readonly", s => s.get(Number(id))),
+  add: record => storeRequest("assets", "readwrite", s => s.add(record)),
+  put: record => storeRequest("assets", "readwrite", s => s.put(record)),
+  delete: id => storeRequest("assets", "readwrite", s => s.delete(Number(id))),
+  clear: () => storeRequest("assets", "readwrite", s => s.clear()),
+  getSetting: key => storeRequest("settings", "readonly", s => s.get(key)),
+  setSetting: (key, value) => storeRequest("settings", "readwrite", s => s.put({key, value})),
+  deleteSetting: key => storeRequest("settings", "readwrite", s => s.delete(key)),
+  clearAllData: clearEntireDatabase,
+  allSettings: () => storeRequest("settings", "readonly", s => s.getAll()),
+  allHistory: () => storeRequest("history", "readonly", s => s.getAll()),
+  addHistory: record => storeRequest("history", "readwrite", s => s.add(record)),
+  clearHistory: () => storeRequest("history", "readwrite", s => s.clear())
+};
+
+</script>
+<script>/* inline mobile.js */
+/* Mobile navigation for Karimi Library */
+(() => {
+  const buttons = [...document.querySelectorAll('[data-mobile-target]')];
+  const items = [...document.querySelectorAll('[data-mobile-page]')];
+  function setPage(page) {
+    document.body.dataset.mobilePage = page;
+    const needsReports = ['loans','reports','settings'].includes(page);
+    document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === (needsReports ? 'reports' : 'assets')));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === (needsReports ? 'reports' : 'assets')));
+    items.forEach(el => { el.hidden = el.dataset.mobilePage !== page; });
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.mobileTarget === page));
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  buttons.forEach(b => b.addEventListener('click', () => setPage(b.dataset.mobileTarget)));
+  document.querySelectorAll('.desktop-tabs .tab').forEach(b => b.addEventListener('click', () => {
+    setPage(b.dataset.tab === 'assets' ? 'books' : 'reports');
+  }));
+  window.KarimiMobile = { setPage };
+  document.addEventListener('DOMContentLoaded', () => setPage('dashboard'));
+})();
+
+</script>
+<script>/* inline excel.js */
+/* Persian/Jalali date helpers. Dates are stored as Gregorian ISO for safe sorting and exported/displayed as Jalali. */
+function gregorianToJalali(iso) {
+  if (!iso) return "";
+  const m=String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/); if(!m) return String(iso);
+  const d=new Date(Date.UTC(+m[1],+m[2]-1,+m[3],12));
+  try { const parts=new Intl.DateTimeFormat("en-u-ca-persian-nu-latn",{year:"numeric",month:"numeric",day:"numeric",timeZone:"UTC"}).formatToParts(d);
+    const o={};parts.forEach(x=>{if(x.type!=="literal")o[x.type]=x.value;});
+    return `${o.year}/${String(o.month).padStart(2,"0")}/${String(o.day).padStart(2,"0")}`;
+  } catch(e) { return String(iso); }
+}
+function jalaliToGregorian(value) {
+  if(!value) return "";
+  const raw=normalizeDigits(value).replace(/[.\-]/g,"/");
+  const m=raw.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/); if(!m) return raw;
+  let y=+m[1], mo=+m[2], day=+m[3];
+  if(y>1700) return `${y}-${String(mo).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+  if(mo<1||mo>12||day<1||day>(mo<=6?31:mo<=11?30:30)) throw new Error("تاریخ شمسی معتبر نیست.");
+  const startYear=y+621; let start=null;
+  for(let offset=0;offset<20;offset++){
+    const candidate=new Date(Date.UTC(startYear,2,19+offset,12));
+    const parts=new Intl.DateTimeFormat("en-u-ca-persian-nu-latn",{year:"numeric",month:"numeric",day:"numeric",timeZone:"UTC"}).formatToParts(candidate);
+    const o={};parts.forEach(x=>{if(x.type!=="literal")o[x.type]=+x.value;});
+    if(o.year===y&&o.month===1&&o.day===1){start=candidate;break;}
+  }
+  if(!start) throw new Error("تبدیل تاریخ شمسی ممکن نشد؛ تاریخ را بررسی کنید.");
+  const days=(mo<=6?(mo-1)*31:186+(mo-7)*30)+(day-1);
+  start.setUTCDate(start.getUTCDate()+days);
+  const result=`${start.getUTCFullYear()}-${String(start.getUTCMonth()+1).padStart(2,"0")}-${String(start.getUTCDate()).padStart(2,"0")}`;
+  if(gregorianToJalali(result)!==`${y}/${String(mo).padStart(2,"0")}/${String(day).padStart(2,"0")}`) throw new Error("روز واردشده در این ماه شمسی معتبر نیست.");
+  return result;
+}
+function displayJalali(value){return value?gregorianToJalali(value):"—";}
+/* Excel/CSV import and export powered by SheetJS */
+const FIELD_HEADERS = {
+  code: ["کد","کد کتاب","شناسه کتاب","code","book code","isbn","شناسه"],
+  product: ["عنوان کتاب","نام کتاب","عنوان","کتاب","product","asset","item","item name"],
+  department: ["موضوع","دسته‌بندی موضوعی","موضوع کتاب","department","section"],
+  ageGroup: ["رده سنی","گروه سنی","age group","agegroup"],
+  dimensions: ["نویسنده","نام نویسنده","author","dimensions","size"],
+  storage: ["ناشر","انتشارات","publisher","storage","warehouse"],
+  location: ["قفسه","محل نگهداری","مکان","محل","location","place","shelf"],
+  recipient: ["امانت گیرنده","امانت‌گیرنده","گیرنده","recipient","borrower","holder"],
+  loanDate: ["تاریخ امانت","تاریخ تحویل","loan date","borrow date"],
+  image: ["عکس","تصویر","image","photo"]
+};
+function normalizeHeader(v) {
+  return String(v ?? "").trim().toLocaleLowerCase("fa")
+    .replace(/ي/g,"ی").replace(/ك/g,"ک").replace(/[\u200c\s_\-]+/g,"");
+}
+function detectColumns(headers) {
+  const normalized = headers.map(normalizeHeader), map = {};
+  for (const [field, aliases] of Object.entries(FIELD_HEADERS)) {
+    const candidates = aliases.map(normalizeHeader);
+    const idx = normalized.findIndex(h => candidates.includes(h));
+    if (idx >= 0) map[field] = idx;
+  }
+  return map;
+}
+function normalizeDigits(value) {
+  return String(value ?? "").replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+    .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).trim();
+}
+function normalizeDimensions(value) {
+  let s=normalizeDigits(value).replace(/[٫]/g,".").trim();
+  if(!s)return "";
+  if(/[×✕✖*xX]/.test(s))return s.split(/[×✕✖*xX]/).map(part=>part.trim().replace(/(\d)[،,](\d)/g,"$1.$2")).filter(Boolean).join(" × ").replace(/\s+/g," ");
+  if(/[؛;|]/.test(s))return s.split(/[؛;|]/).map(x=>x.trim()).filter(Boolean).join(" × ");
+  const commaParts=s.split(/[،,]/).map(x=>x.trim()).filter(Boolean);
+  if(commaParts.length===3&&commaParts.every(x=>/^\d+(?:\s*[a-zA-Zآ-ی]+)?$/.test(x)))return commaParts.join(" × ");
+  return s.replace(/(\d)[،,](\d)/g,"$1.$2").replace(/\s+/g," ");
+}
+function splitDimensionGroups(value){
+  const source=normalizeDigits(value).replace(/[٫]/g,".").trim();if(!source)return [""];
+  const num=String.raw`(?:\d+(?:\.\d+)?|\.\d+)`;
+  const tuple=new RegExp(`${num}\\s*(?:×|✕|✖|\\*|[xX])\\s*${num}(?:\\s*(?:×|✕|✖|\\*|[xX])\\s*${num})?`,"g");
+  const chunks=source.split(/(?:\r?\n|[؛;|/]+|\s+و\s+|\s+and\s+)/i).map(x=>x.trim()).filter(Boolean);
+  const groups=[];
+  for(let chunk of chunks){
+    const xCount=(chunk.match(/[×✕✖*xX]/g)||[]).length;
+    // In a single L×W×H tuple, comma between digits is a decimal mark.
+    if(xCount===2)chunk=chunk.replace(/(\d)[،,](\d)/g,"$1.$2");
+    const matches=[...chunk.matchAll(tuple)];
+    if(matches.length){groups.push(...matches.map(m=>normalizeDimensions(m[0])).filter(Boolean));continue;}
+    const commaTuple=chunk.match(new RegExp(`^\\s*${num}\\s*[،,]\\s*${num}\\s*[،,]\\s*${num}\\s*$`));
+    if(commaTuple||chunks.length>1)groups.push(normalizeDimensions(chunk));
+  }
+  return groups.length?groups:[normalizeDimensions(source)];
+}
+function dimensionCode(baseCode,index,count){return count>1?`${baseCode}.${index+1}`:baseCode;}
+
+function rowsToAssets(rows) {
+  if (!rows.length) return {records:[], errors:["فایل خالی است."]};
+
+  // بعضی فایل‌های اموال، یک عنوان کلی مانند «اموال صلحا» را
+  // در ردیف اول دارند و سرستون‌ها از ردیف دوم شروع می‌شوند.
+  let headerIndex = -1, map = {};
+  const scanLimit = Math.min(rows.length, 15);
+  for (let i = 0; i < scanLimit; i++) {
+    const candidate = detectColumns((rows[i] || []).map(v => String(v ?? "")));
+    if (candidate.code !== undefined && candidate.product !== undefined) {
+      headerIndex = i;
+      map = candidate;
+      break;
+    }
+  }
+  if (headerIndex < 0)
+    return {records:[], errors:["ستون‌های «کد کتاب» و «عنوان کتاب» در ۱۵ ردیف اول پیدا نشدند."]};
+
+  const headers = (rows[headerIndex] || []).map(v => String(v ?? ""));
+  const records = [], errors = [];
+  rows.slice(headerIndex + 1).forEach((row, i) => {
+    if (!row || row.every(v => v == null || String(v).trim() === "")) return;
+    const get = f => map[f] === undefined ? "" : String(row[map[f]] ?? "").trim();
+    const code = normalizeDigits(get("code"));
+    const product = get("product");
+
+    // ردیف‌هایی که فقط شماره دارند یا کاملاً خالی‌اند، ردیف رزرو/فاصله
+    // در دفتر اموال هستند و نباید مانع ورود کل فایل شوند.
+    if (!code && !product) return;
+    if (!code || !product) {
+      errors.push(`ردیف ${headerIndex + i + 2}: به‌دلیل ناقص بودن کد یا عنوان کتاب وارد نشد.`);
+      return;
+    }
+    const recipient = get("recipient");
+    const imageValue = get("image");
+    const dimensionGroups=[get("dimensions")];
+    const shared={
+      product, department:get("department"), ageGroup:get("ageGroup"), storage:get("storage"), location:get("location"), recipient,
+      loanDate:normalizeDate(get("loanDate")), status:recipient?"borrowed":"available",
+      imageData:(rows._imageDataByRow&&rows._imageDataByRow[headerIndex+i+1])||(/^data:image\//i.test(imageValue)?imageValue:null),
+      imageName:imageValue&&!/^#(UNKNOWN|N\/A|VALUE|REF)!?$/i.test(imageValue)?imageValue:"",
+      updatedAt:new Date().toISOString()
+    };
+    dimensionGroups.forEach((dimension,dimensionIndex)=>records.push({
+      ...shared,code:dimensionCode(code,dimensionIndex,dimensionGroups.length),dimensions:dimension
+    }));
+  });
+  return {records, errors, map, headers, headerIndex};
+}
+function normalizeDate(v) {
+  if (!v) return "";
+  if (typeof v === "number" && window.XLSX) {
+    const d = XLSX.SSF.parse_date_code(v);
+    if (d) return `${d.y}-${String(d.m).padStart(2,"0")}-${String(d.d).padStart(2,"0")}`;
+  }
+  const s = String(v).trim();
+  if (/^\d{4}[\/.-]\d{1,2}[\/.-]\d{1,2}$/.test(normalizeDigits(s))) return jalaliToGregorian(normalizeDigits(s).replace(/[.-]/g,"/"));
+  const m = s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
+  if (m) return `${m[1]}-${m[2].padStart(2,"0")}-${m[3].padStart(2,"0")}`;
+  return s;
+}
+function xmlChildrenByLocalName(node,localName){return Array.from(node?.getElementsByTagName?.("*")||[]).filter(el=>el.localName===localName);}
+function resolveZipTarget(baseFile,target){
+  const raw=String(target||"").replace(/\\/g,"/");
+  const parts=(raw.startsWith("/")?raw.slice(1):`${baseFile.slice(0,baseFile.lastIndexOf("/")+1)}${raw}`).split("/");
+  const out=[];for(const part of parts){if(!part||part===".")continue;if(part==="..")out.pop();else out.push(part);}return out.join("/");
+}
+async function extractImagesWithJSZip(data,rows){
+  if(!window.JSZip)throw new Error("JSZip unavailable");
+  const zip=await window.JSZip.loadAsync(data);
+  const readXml=async path=>{const f=zip.file(path);if(!f)return null;return new DOMParser().parseFromString(await f.async("string"),"application/xml");};
+  const relMap=doc=>Object.fromEntries(xmlChildrenByLocalName(doc,"Relationship").map(r=>[r.getAttribute("Id"),r.getAttribute("Target")]));
+  const wbPath="xl/workbook.xml",wb=await readXml(wbPath),wbRels=await readXml("xl/_rels/workbook.xml.rels");
+  if(!wb||!wbRels)throw new Error("Invalid XLSX workbook structure");
+  const first=xmlChildrenByLocalName(wb,"sheet")[0];if(!first)return 0;
+  const rid=Array.from(first.attributes||[]).find(a=>a.localName==="id")?.value,sheetTarget=relMap(wbRels)[rid];if(!sheetTarget)return 0;
+  const sheetPath=resolveZipTarget(wbPath,sheetTarget),sheet=await readXml(sheetPath);if(!sheet)return 0;
+  const sheetRelsPath=`${sheetPath.slice(0,sheetPath.lastIndexOf("/")+1)}_rels/${sheetPath.slice(sheetPath.lastIndexOf("/")+1)}.rels`;
+  const sheetRels=await readXml(sheetRelsPath),drawingNode=xmlChildrenByLocalName(sheet,"drawing")[0];if(!sheetRels||!drawingNode)return 0;
+  const drid=Array.from(drawingNode.attributes||[]).find(a=>a.localName==="id")?.value,drawingTarget=relMap(sheetRels)[drid];if(!drawingTarget)return 0;
+  const drawingPath=resolveZipTarget(sheetPath,drawingTarget),drawing=await readXml(drawingPath);
+  const drawingRelsPath=`${drawingPath.slice(0,drawingPath.lastIndexOf("/")+1)}_rels/${drawingPath.slice(drawingPath.lastIndexOf("/")+1)}.rels`;
+  const drawingRels=await readXml(drawingRelsPath);if(!drawing||!drawingRels)return 0;
+  const rels=relMap(drawingRels),anchors=[...xmlChildrenByLocalName(drawing,"twoCellAnchor"),...xmlChildrenByLocalName(drawing,"oneCellAnchor")];let extracted=0;
+  for(const anchor of anchors){
+    const from=Array.from(anchor.children||[]).find(x=>x.localName==="from"),rowNode=from&&xmlChildrenByLocalName(from,"row")[0];
+    const pic=Array.from(anchor.children||[]).find(x=>x.localName==="pic"),blip=pic&&xmlChildrenByLocalName(pic,"blip")[0];
+    const embed=blip&&Array.from(blip.attributes||[]).find(a=>a.localName==="embed")?.value,row=Number(rowNode?.textContent),target=rels[embed];
+    if(!Number.isInteger(row)||row<0||!target)continue;
+    const mediaPath=resolveZipTarget(drawingPath,target),media=zip.file(mediaPath);if(!media)continue;
+    const ext=(mediaPath.split(".").pop()||"png").toLowerCase(),mime=ext==="jpg"||ext==="jpeg"?"image/jpeg":ext==="gif"?"image/gif":ext==="webp"?"image/webp":ext==="bmp"?"image/bmp":"image/png";
+    if(!rows._imageDataByRow[row]){rows._imageDataByRow[row]=`data:${mime};base64,${await media.async("base64")}`;extracted++;}
+  }
+  return extracted;
+}
+
+async function blobToCompactImageDataURL(blob,maxSide=1200,quality=0.78){
+  try{
+    const bitmap=await createImageBitmap(blob);
+    const scale=Math.min(1,maxSide/Math.max(bitmap.width,bitmap.height));
+    const canvas=document.createElement("canvas");
+    canvas.width=Math.max(1,Math.round(bitmap.width*scale));
+    canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+    const ctx=canvas.getContext("2d",{alpha:false});
+    ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);
+    if(bitmap.close)bitmap.close();
+    return canvas.toDataURL("image/jpeg",quality);
+  }catch(error){
+    return await new Promise((resolve,reject)=>{
+      const reader=new FileReader();
+      reader.onload=()=>resolve(reader.result);
+      reader.onerror=()=>reject(new Error("خواندن تصویر اکسل ناموفق بود."));
+      reader.readAsDataURL(blob);
+    });
+  }
+}
+async function extractRichDataImagesWithJSZip(data,rows){
+  if(!window.JSZip)throw new Error("JSZip unavailable");
+  const zip=await window.JSZip.loadAsync(data);
+  const readXml=async path=>{
+    const file=zip.file(path);if(!file)return null;
+    const doc=new DOMParser().parseFromString(await file.async("string"),"application/xml");
+    return doc.querySelector("parsererror")?null:doc;
+  };
+  const children=(node,name)=>Array.from(node?.getElementsByTagName?.("*")||[]).filter(el=>el.localName===name);
+  const relationMap=doc=>Object.fromEntries(children(doc,"Relationship").map(rel=>[rel.getAttribute("Id"),rel.getAttribute("Target")]));
+  const workbookPath="xl/workbook.xml";
+  const workbook=await readXml(workbookPath);
+  const workbookRels=await readXml("xl/_rels/workbook.xml.rels");
+  if(!workbook||!workbookRels)throw new Error("ساختار workbook اکسل قابل خواندن نیست.");
+  const firstSheet=children(workbook,"sheet")[0];
+  if(!firstSheet)return 0;
+  const sheetRelId=Array.from(firstSheet.attributes||[]).find(a=>a.localName==="id")?.value;
+  const sheetTarget=relationMap(workbookRels)[sheetRelId];
+  if(!sheetTarget)throw new Error("نشانی برگهٔ اول اکسل پیدا نشد.");
+  const sheetPath=resolveZipTarget(workbookPath,sheetTarget);
+  const sheet=await readXml(sheetPath);
+  const metadata=await readXml("xl/metadata.xml");
+  const richValuesDoc=await readXml("xl/richData/rdrichvalue.xml");
+  const richRelationsDoc=await readXml("xl/richData/richValueRel.xml");
+  const richRelationsRels=await readXml("xl/richData/_rels/richValueRel.xml.rels");
+  if(!sheet||!metadata||!richValuesDoc||!richRelationsDoc||!richRelationsRels)return 0;
+  const valueMetadata=children(metadata,"valueMetadata")[0];
+  const metadataEntries=children(valueMetadata,"bk");
+  const richValues=children(richValuesDoc,"rv");
+  const richRelations=children(richRelationsDoc,"rel");
+  const mediaTargets=relationMap(richRelationsRels);
+  const imageCache=new Map();
+  let extracted=0;
+  for(const cell of children(sheet,"c")){
+    const vm=Number(cell.getAttribute("vm"));
+    if(!Number.isInteger(vm)||vm<1)continue;
+    const metadataEntry=metadataEntries[vm-1];
+    const rc=children(metadataEntry,"rc")[0];
+    if(!rc)continue;
+    const richIndex=Number(rc.getAttribute("v"));
+    if(!Number.isInteger(richIndex)||richIndex<0)continue;
+    const richEntry=richValues[richIndex];
+    if(!richEntry)continue;
+    const values=children(richEntry,"v");
+    if(!values.length)continue;
+    const mediaIndex=Number(values[0].textContent);
+    if(!Number.isInteger(mediaIndex)||mediaIndex<0)continue;
+    const rel=richRelations[mediaIndex];
+    if(!rel)continue;
+    const relId=Array.from(rel.attributes||[]).find(a=>a.localName==="id")?.value;
+    const target=mediaTargets[relId];
+    if(!target)continue;
+    const mediaPath=resolveZipTarget("xl/richData/richValueRel.xml",target);
+    const media=zip.file(mediaPath);
+    if(!media)continue;
+    const cellRef=String(cell.getAttribute("r")||"");
+    const rowMatch=cellRef.match(/(\d+)$/);
+    if(!rowMatch)continue;
+    const rowIndex=Number(rowMatch[1])-1;
+    if(rowIndex<0||rows._imageDataByRow[rowIndex])continue;
+    let imageData=imageCache.get(mediaPath);
+    if(!imageData){
+      const blob=await media.async("blob");
+      imageData=await blobToCompactImageDataURL(blob);
+      imageCache.set(mediaPath,imageData);
+    }
+    rows._imageDataByRow[rowIndex]=imageData;
+    extracted++;
+  }
+  return extracted;
+}
+
+async function readSpreadsheet(file){
+  if(!window.XLSX)throw new Error("کتابخانهٔ اکسل بارگذاری نشده است. اتصال اینترنت را بررسی و صفحه را تازه کنید.");
+  const data=await file.arrayBuffer(),workbook=XLSX.read(data,{type:"array",cellDates:true});
+  const sheet=workbook.Sheets[workbook.SheetNames[0]],rows=XLSX.utils.sheet_to_json(sheet,{header:1,raw:true,defval:""});
+  rows._imageDataByRow={};rows._imageExtraction={libraryAvailable:!!window.ExcelJS,extracted:0,warnings:[]};let excelJsError=null;
+  if(window.ExcelJS){try{
+    const imageBook=new ExcelJS.Workbook();await imageBook.xlsx.load(data.slice(0));const imageSheet=imageBook.worksheets[0],pictures=imageSheet?.getImages?.()||[];
+    for(const pic of pictures){try{
+      const img=imageBook.getImage(pic.imageId);if(!img)continue;let b64=img.base64||"";
+      if(!b64&&img.buffer){const bytes=img.buffer instanceof Uint8Array?img.buffer:new Uint8Array(img.buffer);let binary="";for(let i=0;i<bytes.length;i+=0x8000)binary+=String.fromCharCode(...bytes.subarray(i,i+0x8000));b64=btoa(binary);}
+      if(!b64)continue;b64=String(b64).replace(/^data:image\/[^;]+;base64,/i,"");
+      const ext=String(img.extension||"png").toLowerCase(),mime=ext==="jpg"||ext==="jpeg"?"image/jpeg":ext==="gif"?"image/gif":ext==="webp"?"image/webp":"image/png";
+      const row=Math.floor(Number(pic.range?.tl?.nativeRow??pic.range?.tl?.row));
+      if(Number.isInteger(row)&&row>=0&&!rows._imageDataByRow[row]){rows._imageDataByRow[row]=`data:${mime};base64,${b64}`;rows._imageExtraction.extracted++;}
+    }catch(e){console.warn("Image extraction item failed",e);}}
+  }catch(e){excelJsError=e;console.warn("ExcelJS extraction failed; using ZIP fallback",e);}}
+  if(window.JSZip){
+    try{rows._imageExtraction.extracted+=await extractImagesWithJSZip(data.slice(0),rows);}
+    catch(e){console.warn("Classic drawing image extraction failed",e);}
+    try{rows._imageExtraction.extracted+=await extractRichDataImagesWithJSZip(data.slice(0),rows);}
+    catch(e){console.warn("Excel 365 Place in Cell image extraction failed",e);rows._imageExtraction.warnings.push("استخراج تصاویر داخل سلول‌های Excel 365 ناموفق بود: "+(e?.message||"خطای ناشناخته"));}
+  }
+  rows._imageExtraction.extracted=Object.keys(rows._imageDataByRow).length;
+  rows._imageExtraction.methods=["ExcelJS","تصاویر شناور XLSX","تصاویر داخل سلول Excel 365 (Place in Cell)"];
+  if(!rows._imageExtraction.extracted){
+    if(!window.ExcelJS&&!window.JSZip)rows._imageExtraction.warnings.push("کتابخانه‌های استخراج تصویر بارگذاری نشدند؛ اتصال اینترنت را بررسی کنید.");
+    else if(excelJsError)rows._imageExtraction.warnings.push("فایل اکسل خوانده شد، اما استخراج تصویر موفق نبود. جزئیات در کنسول مرورگر موجود است.");
+    else rows._imageExtraction.warnings.push("در برگهٔ اول تصویر قابل استخراج پیدا نشد.");
+  }
+  return rows;
+}
+
+/* خروجی اکسل کتابخانه همراه با تصاویر جلد */
+async function exportAssets(records, fileName = "karimi-library.xlsx") {
+    if (!Array.isArray(records)) {
+        throw new Error("اطلاعات کتاب‌ها معتبر نیست.");
+    }
+
+    if (!window.ExcelJS) {
+        throw new Error("کتابخانه ExcelJS بارگذاری نشده است. اتصال اینترنت را بررسی کنید.");
+    }
+
+    const workbook = new ExcelJS.Workbook();
+
+    workbook.creator = "پویش کتابخوانی";
+
+    const sheet = workbook.addWorksheet("فهرست کتاب‌ها", {
+        views: [{ rightToLeft: true, state: "frozen", ySplit: 1 }]
+    });
+
+    const headers = [
+        "ردیف",
+        "کد کتاب",
+        "عنوان کتاب",
+        "موضوع",
+        "رده سنی",
+        "نویسنده",
+        "ناشر",
+        "قفسه",
+        "امانت‌گیرنده",
+        "تلفن امانت‌گیرنده",
+        "تلفن پشتیبان",
+        "آیدی شبکه اجتماعی",
+        "تاریخ امانت",
+        "ساعت تحویل",
+        "تاریخ بازگشت",
+        "ساعت بازگشت",
+        "وضعیت",
+        "تصویر"
+    ];
+
+    sheet.addRow(headers);
+
+    sheet.columns = [
+        { width: 8 }, { width: 16 }, { width: 28 }, { width: 18 }, { width: 16 },
+        { width: 22 }, { width: 20 }, { width: 18 }, { width: 20 }, { width: 18 },
+        { width: 14 }, { width: 18 }, { width: 14 }, { width: 18 }, { width: 22 },
+        { width: 18 }, { width: 18 }, { width: 22 }
+    ];
+
+    const header = sheet.getRow(1);
+    header.height = 30;
+    header.font = { bold: true, name: "Arial", size: 11 };
+    header.alignment = {
+        vertical: "middle",
+        horizontal: "center",
+        wrapText: true
+    };
+
+    header.eachCell(cell => {
+        cell.fill = {
+            type: "pattern",
+            pattern: "solid",
+            fgColor: { argb: "FFDCE6F1" }
+        };
+    });
+
+    for (let i = 0; i < records.length; i++) {
+        const asset = records[i];
+
+        const row = sheet.addRow([
+            i + 1,
+            asset.code || "",
+            asset.product || "",
+            asset.department || "",
+            asset.ageGroup || "",
+            asset.dimensions || "",
+            asset.storage || "",
+            asset.location || "",
+            asset.recipient || "",
+            asset.recipientPhone || "",
+            asset.recipientBackupPhone || "",
+            asset.recipientSocial || "",
+            asset.loanDate ? displayJalali(asset.loanDate) : "",
+            asset.loanTime || "",
+            asset.returnDate ? displayJalali(asset.returnDate) : "",
+            asset.returnTime || "",
+            asset.status === "borrowed" ? "امانت داده شده" : "موجود",
+            ""
+        ]);
+
+        row.height = 85;
+        row.alignment = {
+            vertical: "middle",
+            horizontal: "center",
+            wrapText: true
+        };
+
+        // افزودن تصویر به فایل اکسل
+        const imageData = asset.imageData;
+
+        if (imageData && typeof imageData === "string") {
+            const match = imageData.match(
+                /^data:image\/(png|jpe?g);base64,(.+)$/i
+            );
+
+            if (match) {
+                const extension =
+                    match[1].toLowerCase() === "jpeg" ? "jpg" :
+                    match[1].toLowerCase();
+
+                const imageId = workbook.addImage({
+                    base64: imageData,
+                    extension: extension
+                });
+
+                sheet.addImage(imageId, {
+                    tl: { col: 14, row: i + 1 },
+                    br: { col: 15, row: i + 2 }
+                });
+            }
+        }
+    }
+
+    // تاریخچهٔ تحویل و بازگشت در برگهٔ جداگانهٔ همان فایل اکسل
+    const historyRows = [];
+    for (const asset of records) {
+        for (const event of (Array.isArray(asset.loanHistory) ? asset.loanHistory : [])) {
+            const dt = event.at ? new Date(event.at) : null;
+            historyRows.push([
+                asset.code || "", asset.product || "", asset.ageGroup || "",
+                event.type === "loan" ? "تحویل / امانت" : "بازگشت",
+                event.recipient || "",
+                dt && !Number.isNaN(dt.getTime()) ? dt.toLocaleString("fa-IR") : (event.at || "")
+            ]);
+        }
+    }
+    const historySheet = workbook.addWorksheet("سوابق امانت و بازگشت", {
+        views: [{ rightToLeft: true, state: "frozen", ySplit: 1 }]
+    });
+    historySheet.addRow(["کد کتاب", "عنوان کتاب", "رده سنی", "نوع عملیات", "امانت‌گیرنده", "تاریخ و ساعت"]);
+    historySheet.columns = [{width:18},{width:28},{width:16},{width:22},{width:24},{width:28}];
+    historySheet.getRow(1).font = { bold: true, name: "Arial", size: 11 };
+    historySheet.getRow(1).alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+    for (const row of historyRows) historySheet.addRow(row).alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+
+    const buffer = await workbook.xlsx.writeBuffer();
+
+    const blob = new Blob([buffer], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName.endsWith(".xlsx")
+        ? fileName
+        : fileName + ".xlsx";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+function exportCsv(records) {
+  const rows = [
+    ["کد کتاب","عنوان کتاب","موضوع","رده سنی","نویسنده","ناشر","قفسه","امانت‌گیرنده","تاریخ امانت","تاریخ بازگشت","وضعیت"],
+    ...(records || []).map(a => [a.code,a.product,a.department,a.ageGroup,a.dimensions,a.storage,a.location,a.recipient,a.recipientPhone||"",a.recipientBackupPhone||"",a.recipientSocial||"",a.loanDate?displayJalali(a.loanDate):"",a.returnDate?displayJalali(a.returnDate):"",a.status === "borrowed" ? "امانت‌داده‌شده" : "موجود"])
+  ];
+  const csv = "\uFEFF" + rows.map(row => row.map(v => `"${String(v ?? "").replace(/"/g,'""')}"`).join(",")).join("\r\n");
+  downloadBlob(new Blob([csv], {type:"text/csv;charset=utf-8"}), "karimi-library.csv");
+}
+
+</script>
+<script>/* inline reports.js */
+/* Reports, backup and restore */
+function downloadBlob(blob, filename) {
+  const url=URL.createObjectURL(blob), a=document.createElement("a");
+  a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+async function createBackup() {
+  const [assets, settings, history] = await Promise.all([DB.all(), DB.allSettings(), DB.allHistory()]);
+  const payload={application:"Karimi Library",version:"1.0",createdAt:new Date().toISOString(),assets,settings,history};
+  downloadBlob(new Blob([JSON.stringify(payload,null,2)],{type:"application/json;charset=utf-8"}),`karimi-library-backup-${new Date().toISOString().slice(0,10)}.json`);
+}
+async function restoreBackup(file) {
+  const payload=JSON.parse(await file.text());
+  if (!payload || !Array.isArray(payload.assets)) throw new Error("ساختار فایل پشتیبان معتبر نیست.");
+  if (!confirm(`تعداد ${payload.assets.length} کتاب در فایل وجود دارد. اطلاعات فعلی با اطلاعات پشتیبان جایگزین شود؟`)) return false;
+  await DB.clear();
+  await DB.clearHistory();
+  for (const raw of payload.assets) {
+    const item={...raw}; delete item.id;
+    await DB.add(item);
+  }
+  if (Array.isArray(payload.settings)) for (const s of payload.settings) await DB.setSetting(s.key,s.value);
+  if (Array.isArray(payload.history)) for (const h of payload.history) { const item={...h}; delete item.id; await DB.addHistory(item); }
+  return true;
+}
+function groupAssets(assets, field) {
+  const counts={};
+  assets.forEach(a=>{const k=(a[field]||"بدون مشخصات");counts[k]=(counts[k]||0)+1;});
+  return Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+}
+
+
+function exportAssetsPdf(items, reportTitle="گزارش کتاب‌های پویش کتابخوانی"){
+  const data=Array.isArray(items)?items:[];
+  const esc=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const jalali=v=>{
+    if(!v)return "—";
+    try{return new Date(v).toLocaleDateString("fa-IR-u-ca-persian");}catch(_){return String(v);}
+  };
+  const rows=data.map((a,i)=>{
+    const photo=a.imageData||a.photo||a.image||"";
+    const img=typeof photo==="string"&&photo.startsWith("data:image/")?`<img src="${photo}" alt="تصویر">`:"—";
+    return `<tr><td>${i+1}</td><td>${img}</td><td>${esc(a.code)}</td><td>${esc(a.product||a.name)}</td><td>${esc(a.department||a.category)}</td><td>${esc(a.ageGroup)}</td><td>${esc(a.dimensions)}</td><td>${esc(a.storage)}</td><td>${esc(a.location)}</td><td>${esc(a.recipient)}</td><td>${esc(jalali(a.loanDate||a.date))}</td><td>${esc(a.status==="borrowed"?"امانت‌داده‌شده":"موجود")}</td></tr>`;
+  }).join("");
+  const w=window.open("","_blank");
+  if(!w){if(typeof toast==="function")toast("پنجرهٔ چاپ مسدود شده است؛ اجازهٔ بازشدن پنجره را فعال کنید.",true);return;}
+  w.document.open();
+  w.document.write(`<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>${esc(reportTitle)}</title>
+  <style>
+  @page{size:A4 landscape;margin:9mm}*{box-sizing:border-box}
+  body{font-family:Tahoma,Arial,sans-serif;color:#172b43;font-size:10px;margin:0}
+  header{display:flex;justify-content:space-between;align-items:end;border-bottom:2px solid #245b91;padding-bottom:8px;margin-bottom:12px}
+  h1{font-size:17px;margin:0 0 4px;color:#245b91}p{margin:0;color:#586b7e}
+  table{width:100%;border-collapse:collapse}th,td{border:1px solid #cbd5df;padding:5px 4px;text-align:right;vertical-align:middle;overflow-wrap:anywhere}
+  th{background:#eaf1f8;color:#183c62}tr{break-inside:avoid;page-break-inside:avoid}
+  img{width:42px;height:38px;object-fit:contain;display:block;margin:auto}
+  .meta{text-align:left;line-height:1.8}.foot{margin-top:8px;color:#667085;font-size:9px}
+  @media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  </style></head><body>
+  <header><div><h1>${esc(reportTitle)}</h1><p>پویش کتابخوانی</p></div>
+  <div class="meta">تاریخ تهیه: ${esc(new Date().toLocaleDateString("fa-IR"))}<br>تعداد رکورد: ${data.length}</div></header>
+  <table><thead><tr><th>ردیف</th><th>تصویر</th><th>کد</th><th>عنوان کتاب</th><th>موضوع</th><th>رده سنی</th><th>نویسنده</th><th>ناشر</th><th>قفسه</th><th>امانت‌گیرنده</th><th>تاریخ امانت</th><th>وضعیت</th></tr></thead>
+  <tbody>${rows||'<tr><td colspan="12">موردی برای نمایش وجود ندارد.</td></tr>'}</tbody></table>
+  <div class="foot">برای ذخیره به‌صورت PDF، در پنجرهٔ چاپ گزینهٔ «Save as PDF» را انتخاب کنید.</div>
+  <script>window.addEventListener('load',()=>{Promise.all([...document.images].map(i=>i.complete?Promise.resolve():new Promise(r=>{i.onload=i.onerror=r}))).then(()=>setTimeout(()=>window.print(),300));});<\/script>
+  </body></html>`);
+  w.document.close();
+}
+
+
+// خروجی کامل تاریخچهٔ عملیات (تمام رویدادهای ثبت‌شده، نه فقط ۳۰۰ مورد نمایشی)
+function operationExportRows(items) {
+  const rows = Array.isArray(items) ? [...items] : [];
+  const norm = (h) => {
+    const action = h.action || (typeof historyLabel === "function" ? historyLabel(h.type) : h.type) || "رویداد";
+    const rawDate = h.eventDate || h.at || h.createdAt || "";
+    let date = "—", time = "—";
+    if (h.eventDate) { date = displayJalali(h.eventDate); time = h.eventTime || "—"; }
+    else if (rawDate) {
+      const dt = new Date(rawDate);
+      if (!Number.isNaN(dt.getTime())) {
+        date = displayJalali(dt.toISOString().slice(0,10));
+        time = new Intl.DateTimeFormat("fa-IR", {hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(dt);
+      } else date = String(rawDate);
+    }
+    return [date, time, action, h.code || "", h.product || "", h.recipient || "", h.operator || "", h.details || ""];
+  };
+  return rows.sort((a,b)=>String(a.at||a.createdAt||"").localeCompare(String(b.at||b.createdAt||""))).map(norm);
+}
+
+async function exportOperationsExcel(items, fileName="solha-operations.xlsx") {
+  if (!window.ExcelJS) throw new Error("کتابخانه ExcelJS بارگذاری نشده است. اتصال اینترنت را بررسی کنید.");
+  const workbook = new ExcelJS.Workbook();
+  workbook.creator = "پویش کتابخوانی";
+  const sheet = workbook.addWorksheet("همه عملیات‌ها", {views:[{rightToLeft:true,state:"frozen",ySplit:1}]});
+  sheet.addRow(["تاریخ شمسی","ساعت","نوع عملیات","کد کتاب","عنوان کتاب","امانت‌گیرنده","کاربر ثبت‌کننده","توضیحات"]);
+  sheet.columns = [{width:18},{width:14},{width:22},{width:16},{width:28},{width:22},{width:22},{width:42}];
+  const head=sheet.getRow(1); head.height=28; head.font={bold:true,name:"Arial",size:11}; head.alignment={vertical:"middle",horizontal:"center",wrapText:true};
+  head.eachCell(c=>c.fill={type:"pattern",pattern:"solid",fgColor:{argb:"FFDCE6F1"}});
+  const rows=operationExportRows(items);
+  for(const values of rows) { const row=sheet.addRow(values); row.alignment={vertical:"middle",horizontal:"center",wrapText:true}; row.height=25; }
+  const buffer=await workbook.xlsx.writeBuffer();
+  downloadBlob(new Blob([buffer],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}),fileName);
+}
+
+function exportOperationsPdf(items, reportTitle="گزارش کامل عملیات پویش کتابخوانی") {
+  const rows=operationExportRows(items);
+  const esc=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const body=rows.map((r,i)=>`<tr><td>${i+1}</td>${r.map(v=>`<td>${esc(v)}</td>`).join("")}</tr>`).join("");
+  const w=window.open("","_blank");
+  if(!w){if(typeof toast==="function")toast("پنجرهٔ چاپ مسدود شده است؛ اجازهٔ بازشدن پنجره را فعال کنید.",true);return;}
+  w.document.open();
+  w.document.write(`<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>${esc(reportTitle)}</title><style>@page{size:A4 landscape;margin:9mm}body{font-family:Tahoma,Arial,sans-serif;font-size:10px;color:#172b43}h1{font-size:17px}.meta{margin-bottom:12px;color:#586b7e}table{width:100%;border-collapse:collapse}th,td{border:1px solid #cbd5df;padding:5px;text-align:right;vertical-align:top;overflow-wrap:anywhere}th{background:#eaf1f8}tr{break-inside:avoid;page-break-inside:avoid}@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><h1>${esc(reportTitle)}</h1><div class="meta">پویش کتابخوانی · تعداد عملیات: ${rows.length} · تاریخ تهیه: ${esc(new Date().toLocaleDateString("fa-IR"))}</div><table><thead><tr><th>ردیف</th><th>تاریخ شمسی</th><th>ساعت</th><th>نوع عملیات</th><th>کد کتاب</th><th>عنوان کتاب</th><th>امانت‌گیرنده</th><th>کاربر ثبت‌کننده</th><th>توضیحات</th></tr></thead><tbody>${body||'<tr><td colspan="9">عملیاتی ثبت نشده است.</td></tr>'}</tbody></table><script>window.addEventListener('load',()=>window.print());<\/script></body></html>`);
+  w.document.close();
+}
+
+</script>
+<script>/* inline app.js */
+/* Karimi Library v1.0 - vanilla JS */
+const $ = id => document.getElementById(id);
+let assets = [], historyEntries = [], pendingImport = [], selectedImage = null, formVisible = true;
+const themes = {
+  solha:{header:"#1559a6",primary:"#1768bd",accent:"#19a6a0",background:"#f2f6fb",panel:"#ffffff",text:"#172b43"},
+  turquoise:{header:"#087e8b",primary:"#078c9c",accent:"#e09f3e",background:"#eef8f8",panel:"#ffffff",text:"#173b42"},
+  green:{header:"#39765a",primary:"#478b68",accent:"#a5b86b",background:"#f1f7f1",panel:"#ffffff",text:"#243d2e"},
+  dark:{header:"#13283f",primary:"#3c8bd9",accent:"#25b8a9",background:"#101a27",panel:"#192638",text:"#e5edf7"}
+};
+function toast(message,error=false){const el=document.createElement("div");el.className="toast"+(error?" error":"");el.textContent=message;$("toastRegion").append(el);setTimeout(()=>el.remove(),3600);}
+function faNumber(n){return new Intl.NumberFormat("fa-IR").format(n);}
+function normalizeCode(s){return String(s??"").replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)).trim();}
+function naturalCodeCompare(a,b){
+  const aa=normalizeCode(a.code).split(/[./]/), bb=normalizeCode(b.code).split(/[./]/);
+  const len=Math.max(aa.length,bb.length);
+  for(let i=0;i<len;i++){if(aa[i]===undefined)return -1;if(bb[i]===undefined)return 1;
+    const x=aa[i],y=bb[i],xn=/^\d+$/.test(x),yn=/^\d+$/.test(y);
+    let c=xn&&yn?(Number(x)-Number(y)):x.localeCompare(y,"en",{numeric:true});
+    if(c)return c;
+  }return String(a.code).localeCompare(String(b.code),"fa");
+}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function getFiltered(){
+  const q=$("searchInput").value.trim().toLocaleLowerCase("fa");
+  let list=assets.filter(a=>{
+    const hay=[a.code,a.product,a.department,a.ageGroup,a.dimensions,a.location,a.recipient,a.recipientPhone,a.recipientBackupPhone,a.recipientSocial].join(" ").toLocaleLowerCase("fa");
+    return (!q||hay.includes(q))&&(!$("departmentFilter").value||a.department===$("departmentFilter").value)&&(!$("storageFilter").value||a.storage===$("storageFilter").value)&&(!$("locationFilter").value||a.location===$("locationFilter").value)&&(!$("statusFilter").value||a.status===$("statusFilter").value);
+  }).sort(naturalCodeCompare);
+  if($("sortOrder").value==="desc")list.reverse();return list;
+}
+async function refresh(){
+  [assets,historyEntries]=await Promise.all([DB.all(),DB.allHistory()]);render();
+}
+function render(){
+  const filtered=getFiltered(), borrowed=assets.filter(a=>a.status==="borrowed").length;
+  $("totalCount").textContent=faNumber(assets.length);$("availableCount").textContent=faNumber(assets.length-borrowed);
+  $("borrowedCount").textContent=faNumber(borrowed);$("departmentCount").textContent=faNumber(new Set(assets.map(a=>a.department).filter(Boolean)).size);
+  $("resultCount").textContent=`${faNumber(filtered.length)} مورد`;
+  $("assetRows").innerHTML=filtered.length?filtered.map(a=>`<tr>
+    <td>${a.imageData?`<img class="thumb" src="${a.imageData}" alt="تصویر ${escapeHtml(a.product)}" data-detail="${a.id}">`:'<span class="no-image">—</span>'}</td>
+    <td><b>${escapeHtml(a.code)}</b></td><td><button class="product-link" data-detail="${a.id}">${escapeHtml(a.product)}</button></td>
+    <td>${escapeHtml(a.department||"—")}</td><td>${escapeHtml(a.ageGroup||"—")}</td><td>${escapeHtml(a.dimensions||"—")}</td><td>${escapeHtml([a.storage,a.location].filter(Boolean).join(" / ")||"—")}</td>
+    <td>${escapeHtml(a.recipient||"—")}</td><td>${escapeHtml(displayJalali(a.loanDate))}</td><td><span class="status ${a.status}">${a.status==="borrowed"?"امانت‌داده‌شده":"موجود"}</span></td>
+    <td><div class="row-actions">${window.SolhaAuth?.can("assets_edit")?`<button data-edit="${a.id}" title="ویرایش">ویرایش</button>`:""}${window.SolhaAuth?.can("assets_loan")?`<button data-loan="${a.id}" title="تغییر وضعیت">${a.status==="borrowed"?"بازگشت":"امانت"}</button>`:""}${window.SolhaAuth?.can("assets_delete")?`<button class="delete" data-delete="${a.id}" title="حذف">حذف</button>`:""}</div></td></tr>`).join(""):`<tr><td colspan="11" class="empty">هیچ کتاب مطابق جستجو یافت نشد.</td></tr>`;
+  populateFilters();renderReports();$("storageInfo").textContent=`ذخیره‌شده روی همین دستگاه · ${faNumber(assets.length)} رکورد`;
+}
+window.solhaRender=render;
+function populateSelect(id,values,label){const el=$(id),v=el.value;el.innerHTML=`<option value="">${label}</option>`+[...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"fa")).map(x=>`<option>${escapeHtml(x)}</option>`).join("");el.value=v;}
+function populateFilters(){populateSelect("departmentFilter",assets.map(a=>a.department),"تمام موضوع‌ها");populateSelect("storageFilter",assets.map(a=>a.storage),"تمام ناشران");populateSelect("locationFilter",assets.map(a=>a.location),"تمام قفسه‌ها");}
+function selectedAgeGroups(){return [...document.querySelectorAll("#ageGroupOptions input[type=checkbox]:checked")].map(el=>el.value);}
+function ageGroupValue(){const selected=selectedAgeGroups();const otherAge=$("ageOtherText").value.trim();return selected.map(v=>v==="سایر"&&otherAge?`سایر (سن: ${otherAge})`:v).join("، ");}
+function setAgeGroupValue(value){const s=String(value||"");const ageMatch=s.match(/سایر\s*\(سن:\s*(.*?)\)/);const selected=s.split(/[،,]/).map(x=>x.trim()).filter(Boolean);
+ document.querySelectorAll("#ageGroupOptions input[type=checkbox]").forEach(el=>{el.checked=selected.some(x=>x===el.value||x.startsWith(el.value+" ("));});
+ $("ageOtherText").value=ageMatch?ageMatch[1]:"";$("ageOtherField").hidden=!$("ageOtherToggle").checked;
+}
+function updateOtherAgeVisibility(){$("ageOtherField").hidden=!$("ageOtherToggle").checked;}
+$("ageOtherToggle").addEventListener("change",updateOtherAgeVisibility);
+function resetForm(){ $("assetForm").reset();$("assetId").value="";$("imageFile").value="";selectedImage=null;$("imagePreviewWrap").hidden=true;$("formTitle").textContent="ثبت کتاب جدید";$("saveAssetBtn").textContent="ذخیره کتاب"; }
+function fillForm(a){$("assetId").value=a.id;$("code").value=a.code;$("product").value=a.product;$("department").value=a.department||"";setAgeGroupValue(a.ageGroup||"");$("dimensions").value=a.dimensions||"";$("storage").value=a.storage||"";$("location").value=a.location||"";$("recipient").value=a.recipient||"";$("recipientPhone").value=a.recipientPhone||"";$("recipientBackupPhone").value=a.recipientBackupPhone||"";$("recipientSocial").value=a.recipientSocial||"";$("loanDate").value=a.loanDate?displayJalali(a.loanDate):"";$("loanTime").value=a.loanTime||"";$("returnDate").value=a.returnDate?displayJalali(a.returnDate):"";$("returnTime").value=a.returnTime||"";$("loanStatus").value=a.status||"available";selectedImage=a.imageData||null;showImagePreview(selectedImage);$("formTitle").textContent="ویرایش کتاب";$("saveAssetBtn").textContent="ذخیره تغییرات";if(window.innerWidth<780)$("formPanel").scrollIntoView({behavior:"smooth"});}
+function showImagePreview(src){$("imagePreviewWrap").hidden=!src;if(src)$("imagePreview").src=src;}
+async function saveAsset(e){e.preventDefault();if(window.SolhaAuth && !window.SolhaAuth.can($("assetId").value?"assets_edit":"assets_add")){toast("شما اجازهٔ انجام این عملیات را ندارید.",true);return;}const id=$("assetId").value;const code=normalizeCode($("code").value);const duplicate=assets.find(a=>normalizeCode(a.code)===code&&String(a.id)!==id);
+  if(duplicate){toast("این کد قبلاً ثبت شده است؛ کد کتاب باید یکتا باشد.",true);return;}
+  const old=id?assets.find(a=>String(a.id)===id):null;
+  const record={...(old||{}),code,product:$("product").value.trim(),department:$("department").value.trim(),ageGroup:ageGroupValue(),dimensions:$("dimensions").value.trim(),storage:$("storage").value.trim(),location:$("location").value.trim(),recipient:$("recipient").value.trim(),recipientPhone:$("recipientPhone").value.trim(),recipientBackupPhone:$("recipientBackupPhone").value.trim(),recipientSocial:$("recipientSocial").value.trim(),loanDate:jalaliToGregorian($("loanDate").value),loanTime:$("loanTime").value||"",returnDate:jalaliToGregorian($("returnDate").value),returnTime:$("returnTime").value||"",status:$("loanStatus").value,imageData:selectedImage,imageName:$("imageFile").files[0]?.name||old?.imageName||"",updatedAt:new Date().toISOString()};
+  if(!Array.isArray(record.loanHistory))record.loanHistory=[];
+  if((old?.status||"available")!==record.status){
+    const eventAt=new Date().toISOString();
+    record.loanHistory.push({type:record.status==="borrowed"?"loan":"return",at:eventAt,recipient:record.status==="borrowed"?record.recipient:(old?.recipient||"")});
+    if(record.status==="borrowed")record.loanedAt=eventAt;else record.returnedAt=eventAt;
+  }
+  try{if(id)await DB.put(record);else{record.createdAt=new Date().toISOString();record.id=await DB.add(record);}await DB.addHistory({assetId:record.id||Number(id)||null,code:record.code,product:record.product,action:id?"ویرایش کتاب":"ثبت کتاب",createdAt:new Date().toISOString(),details:"ثبت یا ویرایش مشخصات کتاب"});resetForm();await refresh();toast(id?"تغییرات ذخیره شد.":"کتاب با موفقیت ثبت شد.");}catch(err){toast("ذخیره‌سازی انجام نشد: "+err.message,true);}
+}
+async function deleteAsset(id){if(window.SolhaAuth&&!window.SolhaAuth.can("assets_delete")){toast("دسترسی حذف برای شما فعال نیست.",true);return;}const a=assets.find(x=>x.id===Number(id));if(!a||!confirm(`کتاب «${a.product}» با کد ${a.code} حذف شود؟`))return;await DB.addHistory({assetId:a.id,code:a.code,product:a.product,action:"حذف کتاب",createdAt:new Date().toISOString(),details:"کتاب از فهرست حذف شد"});await DB.delete(id);if($("assetId").value===String(id))resetForm();await refresh();toast("کتاب حذف شد.");}
+async function toggleLoan(id){
+  if(window.SolhaAuth&&!window.SolhaAuth.can("assets_loan")){toast("دسترسی امانت برای شما فعال نیست.",true);return;}
+  const a=assets.find(x=>x.id===Number(id));if(!a)return;
+  const now=new Date(),date=now.toISOString().slice(0,10),time=now.toTimeString().slice(0,5);
+  if(a.status==="borrowed"){
+    a.status="available";a.returnDate=date;a.returnTime=time;
+    await DB.addHistory({assetId:a.id,code:a.code,product:a.product,action:"بازگشت کتاب",recipient:a.recipient||"",loanDate:a.loanDate||"",loanTime:a.loanTime||"",eventDate:date,eventTime:time,createdAt:now.toISOString(),details:"کتاب به موجودی بازگشت"});
+    a.recipient="";
+  }else{
+    const who=prompt("نام امانت‌گیرنده را وارد کنید:");if(who===null)return;if(!who.trim()){toast("نام امانت‌گیرنده ضروری است.",true);return;}
+    a.status="borrowed";a.recipient=who.trim();a.loanDate=date;a.loanTime=time;a.returnDate="";a.returnTime="";
+    await DB.addHistory({assetId:a.id,code:a.code,product:a.product,action:"تحویل / امانت",recipient:a.recipient,eventDate:date,eventTime:time,createdAt:now.toISOString(),details:"کتاب به امانت‌گیرنده واگذار شد"});
+  }
+  await DB.put(a);await refresh();toast(a.status==="borrowed"?"امانت ثبت شد.":"بازگشت کتاب ثبت شد.");
+}
+function showDetails(id){
+  const a=assets.find(x=>x.id===Number(id));if(!a)return;
+  const fmtTime=v=>{if(!v)return "—";const d=new Date(v);return Number.isNaN(d.getTime())?escapeHtml(v):d.toLocaleString("fa-IR");};
+  const history=historyEntries.filter(h=>Number(h.assetId)===Number(a.id));
+  const historyHtml=history.length?`<h3>سوابق تحویل و بازگشت</h3><div class="table-scroll"><table><thead><tr><th>عملیات</th><th>امانت‌گیرنده</th><th>تاریخ و ساعت</th></tr></thead><tbody>${[...history].sort((x,y)=>String(x.createdAt||"").localeCompare(String(y.createdAt||""))).reverse().map(h=>`<tr><td>${escapeHtml(h.action||"رویداد")}</td><td>${escapeHtml(h.recipient||"—")}</td><td>${escapeHtml(h.eventDate?displayJalali(h.eventDate):new Date(h.createdAt).toLocaleDateString("fa-IR"))} ${escapeHtml(h.eventTime||new Date(h.createdAt).toLocaleTimeString("fa-IR"))}</td></tr>`).join("")}</tbody></table></div>`:'<p class="muted">برای این کتاب هنوز سابقهٔ تحویل و بازگشت ثبت نشده است.</p>';
+  $("assetDetails").innerHTML=`${a.imageData?`<img class="detail-image" src="${a.imageData}" alt="تصویر کتاب">`:""}<div class="detail-list">${[["کد کتاب",a.code],["عنوان کتاب",a.product],["موضوع",a.department],["رده سنی",a.ageGroup],["نویسنده",a.dimensions],["ناشر",a.storage],["قفسه / محل نگهداری",a.location],["امانت‌گیرنده",a.recipient],["شماره تلفن امانت‌گیرنده",a.recipientPhone],["شماره تلفن پشتیبان",a.recipientBackupPhone],["آیدی شبکه اجتماعی",a.recipientSocial],["تاریخ امانت (شمسی)",displayJalali(a.loanDate)],["ساعت تحویل",a.loanTime||"—"],["تاریخ بازگشت (شمسی)",displayJalali(a.returnDate)],["ساعت بازگشت",a.returnTime||"—"],["وضعیت",a.status==="borrowed"?"امانت‌داده‌شده":"موجود"]].map(([k,v])=>`<div class="detail-item"><strong>${k}</strong>${escapeHtml(v||"—")}</div>`).join("")}</div>${historyHtml}`;
+  openModal("detailModal");
+}
+function openModal(id){$(id).classList.add("open");$(id).setAttribute("aria-hidden","false");}
+function closeModal(id){$(id).classList.remove("open");$(id).setAttribute("aria-hidden","true");}
+function renderReports(){
+  const borrowed=assets.filter(a=>a.status==="borrowed").length;
+  $("reportSummary").innerHTML=[["مجموع کتاب‌ها",assets.length],["موجود",assets.length-borrowed],["امانت",borrowed]].map(([k,v])=>`<div class="report-stat"><strong>${faNumber(v)}</strong><span>${k}</span></div>`).join("");
+  const groups=groupAssets(assets,$("groupBy").value);
+  $("groupReport").innerHTML=groups.length?groups.map(([k,v])=>`<div class="group-row"><span>${escapeHtml(k)}</span><b>${faNumber(v)}</b></div>`).join(""):'<p class="muted">اطلاعاتی برای گزارش وجود ندارد.</p>';
+  const recent=[...historyEntries].sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||""))).slice(0,30);
+  $("loanHistoryList").innerHTML=recent.length?recent.map(h=>`<div class="group-row"><span><b>${escapeHtml(h.action||"رویداد")}</b> · ${escapeHtml(h.product||"")} (${escapeHtml(h.code||"")})<br><small>${escapeHtml(h.recipient||"")} ${h.eventDate?"· "+escapeHtml(displayJalali(h.eventDate)):""} ${escapeHtml(h.eventTime||"")}</small></span><small>${escapeHtml(new Date(h.createdAt).toLocaleDateString("fa-IR"))}</small></div>`).join(""):'<p class="muted">هنوز رویدادی ثبت نشده است.</p>';
+}
+async function handleImport(file){try{const rows=await readSpreadsheet(file);const parsed=rowsToAssets(rows);pendingImport=parsed.records;const imgInfo=rows._imageExtraction||{};if(imgInfo.warnings?.length)toast(imgInfo.warnings[0],true);else if(imgInfo.extracted)toast(`${faNumber(imgInfo.extracted)} تصویر از اکسل استخراج شد.`);const existing=new Set(assets.map(a=>normalizeCode(a.code)));$("importMeta").textContent=`${faNumber(parsed.records.length)} ردیف معتبر · ${faNumber(parsed.errors.length)} خطا · ${parsed.headers?.length||0} ستون`;if(!parsed.records.length)throw new Error(parsed.errors.join(" "));$("importPreviewRows").innerHTML=parsed.records.slice(0,500).map(a=>`<tr><td>${a.imageData?`<img class="import-thumb" src="${a.imageData}" alt="تصویر">`:"—"}</td><td>${escapeHtml(a.code)}</td><td>${escapeHtml(a.product)}</td><td>${escapeHtml(a.department||"—")}</td><td>${escapeHtml(a.ageGroup||"—")}</td><td>${escapeHtml(a.storage||"—")}</td><td>${escapeHtml(a.location||"—")}</td><td>${escapeHtml(a.dimensions||"—")}</td><td>${a.status==="borrowed"?"امانت":"موجود"}</td><td class="${parsed.errors.length?"invalid":"valid"}">${existing.has(normalizeCode(a.code))?"کد تکراری":"آماده"}</td></tr>`).join("");if(parsed.records.length>500)toast("برای جلوگیری از سنگین‌شدن پیش‌نمایش، فقط ۵۰۰ ردیف نخست نمایش داده شده؛ همهٔ ردیف‌ها قابل ورود هستند.");if(parsed.errors.length)toast(parsed.errors.slice(0,3).join(" "),true);openModal("importModal");}catch(e){toast(e.message,true);}}
+async function confirmImport(){if(window.SolhaAuth&&!window.SolhaAuth.can("assets_add")){toast("دسترسی ورود اکسل برای شما فعال نیست.",true);return;}const mode=$("duplicateMode").value;let added=0,updated=0,skipped=0,duplicates=new Map();for(const a of pendingImport){const key=normalizeCode(a.code),old=assets.find(x=>normalizeCode(x.code)===key);if(old){if(mode==="skip"){skipped++;continue;}if(mode==="update"){await DB.put({...old,...a,id:old.id,imageData:a.imageData||old.imageData});updated++;continue;}let n=2;while(assets.some(x=>normalizeCode(x.code)===`${key}-${n}`)||duplicates.has(`${key}-${n}`))n++;a.code=`${key}-${n}`;duplicates.set(a.code,true);}await DB.add(a);added++;}closeModal("importModal");pendingImport=[];await refresh();toast(`ورود پایان یافت: ${faNumber(added)} جدید، ${faNumber(updated)} به‌روزرسانی، ${faNumber(skipped)} ردشده.`);}
+async function cleanSelectedData(){
+  if(!window.SolhaAuth?.isAdmin?.()){toast("این عملیات فقط در اختیار مدیر اصلی است.",true);return;}
+  const selected=[...document.querySelectorAll(".clean-choice:checked")].map(x=>x.value);
+  if(!selected.length){toast("حداقل یک مورد برای پاک‌سازی انتخاب کنید.",true);return;}
+  const labels={assets:"تمام کتاب‌ها و مشخصات تجهیزات",images:"تصاویر کتاب‌ها",loans:"اطلاعات امانت‌ها و تحویل‌ها",users:"کاربران عادی",history:"سوابق و تاریخچه عملیات",appearance:"تنظیمات ظاهری"};
+  const summary=selected.map(x=>"• "+labels[x]).join("\n");
+  if(!confirm("موارد زیر پاک‌سازی می‌شوند:\n"+summary+"\n\nاین عملیات قابل بازگشت نیست. ادامه می‌دهید؟"))return;
+  try{
+    if(selected.includes("assets")) await DB.clear();
+    else {
+      const rows=await DB.all();
+      for(const a of rows){
+        let changed=false;
+        if(selected.includes("images")&&(a.imageData||a.imageName)){a.imageData=null;a.imageName="";changed=true;}
+        if(selected.includes("loans")&&(a.status==="borrowed"||a.recipient||a.loanDate||a.loanAt||a.returnAt)){a.status="available";a.recipient="";a.loanDate="";a.loanAt="";a.returnAt="";changed=true;}
+        if(changed)await DB.put(a);
+      }
+    }
+    if(selected.includes("users")){
+      const saved=await DB.getSetting("auth_users");
+      const users=(saved?.value||[]).filter(u=>u.id==="admin"||u.role==="admin");
+      await DB.setSetting("auth_users",users);
+    }
+    if(selected.includes("history")) await DB.clearHistory();
+    if(selected.includes("appearance")) await DB.deleteSetting("appearance");
+    await refresh();
+    if(selected.includes("users")) await window.SolhaAuth?.reloadUsers?.();
+    if(selected.includes("appearance")){const saved=await DB.getSetting("appearance");applyAppearance(saved?.value||{...themes.solha,theme:"solha",font:"'Vazirmatn',Tahoma,sans-serif",fontSize:13});}
+    document.querySelectorAll(".clean-choice").forEach(x=>x.checked=false);
+    closeModal("dataToolsModal");toast("پاک‌سازی انتخابی با موفقیت انجام شد.");
+  }catch(e){toast("پاک‌سازی ناموفق بود: "+e.message,true);}
+}
+async function clearAllAssets(){
+  if(!window.SolhaAuth?.isAdmin?.()){toast("این عملیات فقط در اختیار مدیر اصلی است.",true);return;}
+  const phrase="بازنشانی کامل";
+  if(!confirm("هشدار بسیار مهم: تمام اطلاعات برنامه شامل کتاب‌ها، تصاویر، امانت‌ها، کاربران، تاریخچه و تنظیمات حذف خواهد شد. این کار قابل بازگشت نیست. آیا مطمئن هستید؟"))return;
+  if(prompt("برای تأیید نهایی، عبارت «"+phrase+"» را دقیقاً وارد کنید:")!==phrase){toast("عبارت تأیید صحیح نبود؛ عملیات لغو شد.");return;}
+  try{await DB.clearAllData();closeModal("dataToolsModal");toast("همه اطلاعات پاک شد؛ برنامه در حال بازگشت به وضعیت اولیه است.");setTimeout(()=>window.location.reload(),700);}
+  catch(e){toast("بازنشانی کامل ناموفق بود: "+e.message,true);}
+}
+async function saveAppearance(){const theme=$("themeSelect").value;const cfg={theme,header:$("headerColor").value,primary:$("primaryColor").value,accent:$("accentColor").value,background:$("backgroundColor").value,panel:$("panelColor").value,text:$("textColor").value,font:$("fontFamily").value,fontSize:$("fontSize").value,customFontName:window.solhaFontName||"",customFontData:window.solhaFontData||""};await DB.setSetting("appearance",cfg);applyAppearance(cfg);toast("تنظیمات ظاهر ذخیره شد.");}
+function applyAppearance(cfg){if(!cfg)return;
+  if(cfg.customFontData && cfg.customFontName){
+    const family=cfg.customFontName;
+    try { const face=new FontFace(family, `url(${cfg.customFontData})`); face.load().then(f=>document.fonts.add(f)).catch(()=>{}); } catch(e) {}
+    if(!$("fontFamily").querySelector(`option[value="${family}, sans-serif"]`)) $("fontFamily").innerHTML+=`<option value="${family}, sans-serif">${escapeHtml(family)}</option>`;
+  }
+  document.body.dataset.theme=cfg.theme==="dark"?"dark":"";const root=document.documentElement;root.style.setProperty("--header",cfg.header);root.style.setProperty("--primary",cfg.primary);root.style.setProperty("--accent",cfg.accent);root.style.setProperty("--bg",cfg.background);root.style.setProperty("--panel",cfg.panel);root.style.setProperty("--text",cfg.text);root.style.setProperty("--font",cfg.font);root.style.setProperty("--fs",`${cfg.fontSize}px`);for(const [id,key] of [["headerColor","header"],["primaryColor","primary"],["accentColor","accent"],["backgroundColor","background"],["panelColor","panel"],["textColor","text"]])$(id).value=cfg[key];$("themeSelect").value=cfg.theme;$("fontFamily").value=cfg.font;$("fontSize").value=cfg.fontSize;$("fontSizeValue").textContent=cfg.fontSize;}
+function setTheme(name){const cfg=themes[name];if(!cfg)return;applyAppearance({...cfg,theme:name,font:$("fontFamily").value,fontSize:$("fontSize").value});}
+async function init(){try{await openDatabase();await refresh();const saved=await DB.getSetting("appearance");applyAppearance(saved?.value||{...themes.solha,theme:"solha",font:"'Vazirmatn',Tahoma,sans-serif",fontSize:13});}catch(e){toast("خطا در راه‌اندازی پایگاه داده: "+e.message,true);}}
+$("assetForm").addEventListener("submit",saveAsset);
+$("resetFormBtn").addEventListener("click",resetForm);$("newAssetBtn").addEventListener("click",()=>{resetForm();$("formPanel").scrollIntoView({behavior:"smooth"});});
+async function imageFileToDataURL(file,maxSide=1400,quality=.82){
+  if(!file || !file.type.startsWith("image/")) throw new Error("لطفاً یک فایل تصویری معتبر انتخاب کنید.");
+  if(file.size>15*1024*1024) throw new Error("حجم تصویر اولیه نباید بیشتر از ۱۵ مگابایت باشد.");
+  const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(new Error("خواندن فایل تصویر ناموفق بود."));r.readAsDataURL(file);});
+  const img=new Image(); img.src=data; await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=()=>reject(new Error("قالب تصویر قابل خواندن نیست؛ تصویر را به JPG یا PNG تبدیل کنید."));});
+  const scale=Math.min(1,maxSide/Math.max(img.naturalWidth,img.naturalHeight));
+  const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+  const ctx=canvas.getContext("2d");ctx.drawImage(img,0,0,canvas.width,canvas.height);
+  return canvas.toDataURL("image/jpeg",quality);
+}
+$("imageFile").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{selectedImage=await imageFileToDataURL(f);showImagePreview(selectedImage);toast("تصویر بارگذاری و آمادهٔ ذخیره شد.");}catch(err){selectedImage=null;showImagePreview(null);toast(err.message,true);e.target.value="";}});
+$("removeImageBtn").addEventListener("click",()=>{selectedImage=null;$("imageFile").value="";showImagePreview(null);});
+$("assetRows").addEventListener("click",e=>{const t=e.target.closest("[data-edit],[data-delete],[data-loan],[data-detail]");if(!t)return;if(t.dataset.edit)fillForm(assets.find(a=>a.id===Number(t.dataset.edit)));if(t.dataset.delete)deleteAsset(t.dataset.delete);if(t.dataset.loan)toggleLoan(t.dataset.loan);if(t.dataset.detail)showDetails(t.dataset.detail);});
+["searchInput","departmentFilter","storageFilter","locationFilter","statusFilter","sortOrder"].forEach(id=>$(id).addEventListener(id==="searchInput"?"input":"change",render));
+$("clearFiltersBtn").addEventListener("click",()=>{["searchInput","departmentFilter","storageFilter","locationFilter","statusFilter"].forEach(id=>$(id).value="");$("sortOrder").value="asc";render();});
+$("toggleFormBtn").addEventListener("click",()=>{formVisible=!formVisible;$("workspace").classList.toggle("form-hidden",!formVisible);$("toggleFormBtn").textContent=formVisible?"پنهان‌کردن فرم":"نمایش فرم ثبت / ویرایش";});
+$("importBtn").addEventListener("click",()=>$("excelFile").click());$("excelFile").addEventListener("change",e=>{if(e.target.files[0])handleImport(e.target.files[0]);e.target.value="";});
+$("confirmImportBtn").addEventListener("click",confirmImport);
+
+$("exportBtn").addEventListener("click", async () => {
+    try {
+        await exportAssets(
+            getFiltered(),
+            "karimi-library-filtered.xlsx"
+        );
+
+        toast("خروجی اکسل آماده شد.");
+    } catch (e) {
+        console.error(e);
+        toast(e.message, true);
+    }
+});
+$("exportAllExcelBtn").addEventListener("click", async () => {
+    try {
+        await exportAssets(
+            [...assets].sort(naturalCodeCompare),
+            "karimi-library-all.xlsx"
+        );
+
+        toast("خروجی کامل اکسل آماده شد.");
+    } catch (e) {
+        console.error(e);
+        toast(e.message, true);
+    }
+});
+
+$("exportCsvBtn").addEventListener("click",()=>exportCsv(getFiltered()));
+$("exportFilteredPdfBtn").addEventListener("click",()=>exportAssetsPdf(getFiltered(),"گزارش PDF فهرست کتاب‌های فیلترشده پویش کتابخوانی"));
+$("exportAllPdfBtn").addEventListener("click",()=>exportAssetsPdf([...assets].sort(naturalCodeCompare),"گزارش PDF کامل پویش کتابخوانی"));
+$("exportOperationsExcelBtn").addEventListener("click",async()=>{try{const allOperations=await DB.allHistory();await exportOperationsExcel(allOperations,"karimi-library-operations.xlsx");toast("خروجی اکسل کامل عملیات‌ها آماده شد.");}catch(e){console.error(e);toast(e.message,true);}});
+$("exportOperationsPdfBtn").addEventListener("click",async()=>{try{const allOperations=await DB.allHistory();exportOperationsPdf(allOperations,"گزارش کامل عملیات پویش کتابخوانی");}catch(e){toast(e.message,true);}});
+$("backupBtn").addEventListener("click",()=>createBackup().then(()=>toast("فایل پشتیبان ایجاد شد.")).catch(e=>toast(e.message,true)));
+$("adminMenuBtn").addEventListener("click",()=>{const menu=$("adminDropdown");menu.hidden=!menu.hidden;$("adminMenuBtn").setAttribute("aria-expanded",String(!menu.hidden));});
+$("openRefreshToolsBtn").addEventListener("click",()=>{if(!window.SolhaAuth?.isAdmin?.()){toast("فقط مدیر اصلی دسترسی دارد.",true);return;}$("adminDropdown").hidden=true;openModal("refreshToolsModal");});
+$("openDataToolsBtn").addEventListener("click",()=>{if(!window.SolhaAuth?.isAdmin?.()){toast("فقط مدیر اصلی دسترسی دارد.",true);return;}$("adminDropdown").hidden=true;openModal("dataToolsModal");});
+$("backupQuickBtn").addEventListener("click",()=>{ $("adminDropdown").hidden=true; createBackup().then(()=>toast("فایل پشتیبان ایجاد شد.")).catch(e=>toast(e.message,true)); });
+$("runSelectedRefreshBtn").addEventListener("click",async()=>{try{const selected=[...document.querySelectorAll(".refresh-choice:checked")].map(x=>x.value);if(!selected.length){toast("حداقل یک موضوع را برای رفرش انتخاب کنید.",true);return;}if(selected.includes("assets")){assets=await DB.all();render();}if(selected.includes("history")){historyEntries=await DB.allHistory();renderReports();}if(selected.includes("users"))await window.SolhaAuth?.reloadUsers?.();if(selected.includes("appearance")){const saved=await DB.getSetting("appearance");applyAppearance(saved?.value||{...themes.solha,theme:"solha",font:"'Vazirmatn',Tahoma,sans-serif",fontSize:13});}closeModal("refreshToolsModal");toast("رفرش انتخابی انجام شد؛ هیچ اطلاعاتی حذف نشد.");}catch(e){toast("رفرش ناموفق بود: "+e.message,true);}});
+$("cleanSelectedDataBtn").addEventListener("click",cleanSelectedData);
+$("clearAllAssetsBtn").addEventListener("click",clearAllAssets);
+
+$("restoreBtn").addEventListener("click",()=>$("restoreFile").click());$("restoreFile").addEventListener("change",async e=>{if(!e.target.files[0])return;try{const ok=await restoreBackup(e.target.files[0]);if(ok){await refresh();toast("بازیابی اطلاعات انجام شد.");}}catch(err){toast("بازیابی ناموفق: "+err.message,true);}e.target.value="";});
+$("printReportBtn").addEventListener("click",()=>window.print());$("groupBy").addEventListener("change",renderReports);
+$("themeSelect").addEventListener("change",e=>{if(e.target.value==="custom")return;setTheme(e.target.value);});
+$("fontSize").addEventListener("input",e=>$("fontSizeValue").textContent=e.target.value);
+$("saveAppearanceBtn").addEventListener("click",saveAppearance);
+$("fontFile").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{
+  if(f.size>8*1024*1024) throw new Error("حجم فایل فونت باید کمتر از ۸ مگابایت باشد.");
+  const buffer=await f.arrayBuffer(), bytes=new Uint8Array(buffer); let binary="";
+  for(let i=0;i<bytes.length;i+=0x8000) binary+=String.fromCharCode(...bytes.subarray(i,i+0x8000));
+  const dataUrl=`data:${f.type||"font/ttf"};base64,${btoa(binary)}`, name="SolhaCustomFont";
+  const face=new FontFace(name,`url(${dataUrl})`); await face.load(); document.fonts.add(face);
+  window.solhaFontName=name; window.solhaFontData=dataUrl;
+  if(!$("fontFamily").querySelector(`option[value="${name}, sans-serif"]`)) $("fontFamily").innerHTML+=`<option value="${name}, sans-serif">${escapeHtml(f.name)}</option>`;
+  $("fontFamily").value=`${name}, sans-serif`; toast("فونت بارگذاری شد؛ برای ذخیرهٔ ماندگار، «ذخیره تنظیمات ظاهر» را بزنید.");
+}catch(err){toast("بارگذاری فونت ناموفق: "+err.message,true);} });
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>closeModal(b.dataset.close)));
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)closeModal(m.id);}));
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".tab-panel").forEach(x=>x.classList.toggle("active",x.id===b.dataset.tab));}));
+init();
+
+</script>
+<script>/* inline auth.js */
+/* Local account and access management */
+(() => {
+  const $ = id => document.getElementById(id);
+  const enc = new TextEncoder();
+  // WebCrypto is unavailable on some HTTP LAN origins (for example, opening
+  // the app from a phone via http://192.168.x.x). Keep login functional there.
+  const hash = async value => {
+    const bytes = enc.encode(String(value));
+    if (globalThis.crypto?.subtle) {
+      const digest = await globalThis.crypto.subtle.digest("SHA-256", bytes);
+      return [...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,"0")).join("");
+    }
+    // Compatibility fallback for local/LAN use only; not a replacement for
+    // server-side password hashing in an internet-facing deployment.
+    let out = "";
+    for (let seed=0; seed<4; seed++) {
+      let h = (2166136261 ^ (seed * 0x9e3779b9)) >>> 0;
+      for (const b of bytes) { h ^= b; h = Math.imul(h, 16777619) >>> 0; }
+      h ^= h >>> 16; h = Math.imul(h, 2246822507) >>> 0; h ^= h >>> 13;
+      out += h.toString(16).padStart(8,"0");
+    }
+    return out;
+  };
+  const makeId = () => globalThis.crypto?.randomUUID?.() || (`u_${Date.now()}_${Math.random().toString(36).slice(2)}`);
+  let users = [], current = null, authDisabled = false;
+  const perms = ["assets_view","assets_add","assets_edit","assets_delete","assets_loan","reports_view","reports_export"];
+  const labels = {assets_view:"مشاهدهٔ فهرست کتاب‌ها",assets_add:"ثبت کتاب و ورود اکسل",assets_edit:"ویرایش کتاب",assets_delete:"حذف کتاب",assets_loan:"ثبت امانت و بازگشت کتاب",reports_view:"مشاهدهٔ گزارش‌ها",reports_export:"خروجی اکسل و پشتیبان‌گیری"};
+  const descriptions = {assets_view:"دیدن جدول و جزئیات کتاب‌ها",assets_add:"ثبت دستی یا واردکردن فایل اکسل",assets_edit:"تغییر اطلاعات کتاب‌ها",assets_delete:"حذف رکوردهای کتاب",assets_loan:"ثبت تحویل، امانت و بازگشت",reports_view:"دیدن آمار و گزارش‌ها",reports_export:"گرفتن فایل اکسل، CSV و پشتیبان"};
+  function migratePermissions(list){const old=new Set(list||[]),out=new Set(old);if(old.has("assets")){["assets_view","assets_add","assets_edit","assets_delete","assets_loan"].forEach(x=>out.add(x));out.delete("assets");}if(old.has("reports")){["reports_view","reports_export"].forEach(x=>out.add(x));out.delete("reports");}out.delete("users");return [...out].filter(x=>perms.includes(x));}
+  const safe = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const toast = msg => window.toast ? window.toast(msg) : alert(msg);
+  const avatarFallback = name => `<span class="avatar-fallback">${safe((name||"ک").trim().slice(0,1))}</span>`;
+  async function readAvatar(file){
+    if(!file)return "";
+    if(!file.type.startsWith("image/"))throw new Error("لطفاً یک فایل تصویری انتخاب کنید.");
+    if(file.size>12*1024*1024)throw new Error("حجم عکس اولیه باید کمتر از ۱۲ مگابایت باشد.");
+    const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(new Error("خواندن تصویر ناموفق بود."));r.readAsDataURL(file);});
+    const img=new Image();img.src=data;await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=()=>reject(new Error("تصویر قابل نمایش نیست؛ آن را به JPG یا PNG تبدیل کنید."));});
+    const scale=Math.min(1,480/Math.max(img.naturalWidth,img.naturalHeight));const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);return canvas.toDataURL("image/jpeg",.8);
+  }
+  function inject() {
+    document.body.insertAdjacentHTML("beforeend", `
+      <div id="authScreen" class="auth-screen"><form id="loginForm" class="auth-card">
+        <div class="auth-logo">ص</div><h1>ورود به سیستم مدیریت کتابخانه</h1><p>برای ادامه وارد حساب کاربری خود شوید.</p>
+        <label>نام کاربری<input id="loginUser" autocomplete="username" required></label>
+        <label>رمز عبور<input id="loginPass" type="password" autocomplete="current-password" required></label>
+        <p id="loginError" class="auth-error" hidden>نام کاربری یا رمز عبور اشتباه است.</p>
+        <button class="btn primary" type="submit">ورود به حساب</button>
+      </form></div>
+      <div id="accountTools" class="account-tools" hidden>
+        <span id="accountWelcome"></span><button class="btn small secondary" id="profileBtn">پروفایل حساب</button>
+        <button class="btn small ghost" id="logoutBtn">خروج</button>
+      </div>
+      <div class="modal" id="profileModal" aria-hidden="true"><div class="modal-card auth-modal">
+        <div class="modal-head"><h2>پروفایل حساب کاربری</h2><button class="icon-btn" data-close="profileModal">×</button></div>
+        <form id="profileForm">
+        <div class="profile-photo-editor"><img id="profileAvatarPreview" alt="عکس پروفایل" src="" /><label>عکس پروفایل<input id="profileAvatarFile" type="file" accept="image/*"></label><button class="btn ghost small" type="button" id="removeProfileAvatar">حذف عکس</button></div>
+        <label>نام نمایشی<input id="profileName" maxlength="100" required></label>
+        <label>نام کاربری جدید<input id="profileUsername" maxlength="60" required></label>
+        <label>رمز عبور فعلی<input id="profileCurrentPass" type="password" required></label>
+        <label>رمز عبور جدید (در صورت تغییر)<input id="profileNewPass" type="password" minlength="3"></label>
+        <button class="btn primary" type="submit">ذخیره تغییرات</button></form>
+      </div></div>
+      <div class="modal" id="usersModal" aria-hidden="true"><div class="modal-card large-modal auth-modal">
+        <div class="modal-head"><div><h2>مدیریت حساب‌های کاربری</h2><p>ساخت حساب مستقل و تعیین سطح دسترسی</p><button class="btn primary small" type="button" id="newUserBtn">＋ افزودن کاربر جدید</button></div><button class="icon-btn" data-close="usersModal">×</button></div>
+        <form id="userForm"><input type="hidden" id="editUserId">
+          <div class="new-user-photo"><label>عکس پروفایل کاربر<input id="newUserAvatar" type="file" accept="image/*"></label><img id="newUserAvatarPreview" alt="پیش‌نمایش عکس کاربر" hidden></div>
+          <div class="form-grid"><label>نام نمایشی<input id="newDisplayName" required maxlength="100"></label>
+          <label>نام کاربری<input id="newUsername" required maxlength="60"></label>
+          <label>رمز عبور<input id="newPassword" type="password" minlength="3"></label>
+          <label>وضعیت حساب<select id="newUserActive"><option value="true">فعال</option><option value="false">غیرفعال</option></select></label></div>
+          <div class="permission-heading">سطح دسترسی کاربر (هر قابلیت را جداگانه فعال کنید):</div><div class="permission-grid">${perms.map(p=>`<label><input type="checkbox" class="user-perm" value="${p}"> <span><b>${labels[p]}</b><small>${descriptions[p]}</small></span></label>`).join("")}</div><p class="muted">مدیریت حساب‌ها و تعیین دسترسی‌ها فقط در اختیار مدیر اصلی است.</p>
+          <button class="btn primary" type="submit">ذخیره حساب</button><button class="btn ghost" type="button" id="cancelUserEdit">پاک‌کردن فرم</button>
+        </form><div class="table-scroll"><table><thead><tr><th>تصویر</th><th>نام و مشخصات</th><th>نام کاربری</th><th>وضعیت</th><th>دسترسی‌ها</th><th>عملیات</th></tr></thead><tbody id="usersRows"></tbody></table></div>
+      </div></div>`);
+    const reports = $("reports");
+    const article = document.createElement("article");
+    article.className = "panel user-admin-panel"; article.dataset.mobilePage = "settings";
+    article.innerHTML = `<h3>حساب‌های کاربری و دسترسی‌ها</h3><p class="muted">ایجاد حساب جدید و تنظیم دسترسی کاربران سیستم.</p><button class="btn primary" id="manageUsersBtn">مدیریت کاربران</button>`;
+    reports.querySelector(".report-grid").append(article);
+    $("manageUsersBtn").addEventListener("click",()=>{resetUserForm();renderUsers();open("usersModal");});
+    $("newUserBtn").addEventListener("click",resetUserForm);
+    $("loginForm").addEventListener("submit",login);
+    $("disableLoginPassword").addEventListener("change",e=>setLoginBypass(e.target.checked));
+    $("logoutBtn").addEventListener("click",logout);
+    $("profileBtn").addEventListener("click",showProfile);
+    $("profileForm").addEventListener("submit",saveProfile);
+    $("profileAvatarFile").addEventListener("change", async e => { try { current.avatar = await readAvatar(e.target.files[0]); $("profileAvatarPreview").src=current.avatar; } catch(err){toast(err.message);} });
+    $("removeProfileAvatar").addEventListener("click",()=>{current.avatar="";$("profileAvatarPreview").removeAttribute("src");$("profileAvatarFile").value="";});
+    $("newUserAvatar").addEventListener("change", async e => { try { $("newUserAvatarPreview").src=await readAvatar(e.target.files[0]);$("newUserAvatarPreview").hidden=false; } catch(err){toast(err.message);} });
+    $("userForm").addEventListener("submit",saveUser);
+    $("cancelUserEdit").addEventListener("click",resetUserForm);
+    document.querySelectorAll("#profileModal [data-close],#usersModal [data-close]").forEach(b=>b.addEventListener("click",()=>close(b.dataset.close)));
+  }
+  function open(id){$(id).classList.add("open");$(id).setAttribute("aria-hidden","false");}
+  function close(id){$(id).classList.remove("open");$(id).setAttribute("aria-hidden","true");}
+  async function loadUsers(){
+    const saved=await DB.getSetting("auth_users");
+    users=saved?.value||[];
+    if(!users.length){
+      users=[{id:"admin",username:"admin",displayName:"مدیر کتابخانه",passwordHash:await hash("123"),role:"admin",active:true,permissions:perms}];
+      await persist();
+    } else {
+      users=users.map(u=>({...u,permissions:u.role==="admin"?perms:migratePermissions(u.permissions)}));
+    }
+    // One-time v4.6.3 administrator password reset. Existing assets and user
+    // accounts remain untouched; only the built-in admin credentials are reset.
+    const resetMarker=await DB.getSetting("admin_password_reset_v463");
+    if(!resetMarker?.value){
+      let admin=users.find(u=>u.id==="admin" || u.role==="admin");
+      if(!admin){
+        admin={id:"admin",displayName:"مدیر کتابخانه",role:"admin",active:true,permissions:perms};
+        users.unshift(admin);
+      }
+      admin.username="admin";
+      admin.passwordHash=await hash("123");
+      admin.role="admin";
+      admin.active=true;
+      admin.permissions=[...perms];
+      await persist();
+      await DB.setSetting("admin_password_reset_v463",true);
+    } else {
+      await persist();
+    }
+  }
+  const persist=()=>DB.setSetting("auth_users",users);
+  async function enterWithoutLogin(){
+    const admin=users.find(u=>u.role==="admin"&&u.active)||users.find(u=>u.active);
+    if(!admin)return;
+    current=admin;$('loginError').hidden=true;$('authScreen').hidden=true;
+    document.body.classList.add('authenticated');$('accountTools').hidden=true;updateAvatarUI();applyAccess();
+  }
+  async function syncPasswordModeUI(){
+    const box=$('disableLoginPassword'),panel=$('passwordModePanel');
+    if(box)box.checked=authDisabled;if(panel)panel.hidden=current?.role!=='admin';
+    const logoutBtn=$('logoutBtn');if(logoutBtn)logoutBtn.hidden=authDisabled;
+  }
+  async function setLoginBypass(enabled){
+    if(current?.role!=='admin'){toast('فقط مدیر اصلی می‌تواند این تنظیم را تغییر دهد.');return;}
+    authDisabled=!!enabled;await DB.setSetting('auth_disabled',authDisabled);await syncPasswordModeUI();
+    if(authDisabled){await enterWithoutLogin();toast('ورود بدون رمز فعال شد؛ دسترسی دستگاه را کنترل کنید.');}
+    else{toast('ورود با رمز فعال شد. برای اعمال کامل، از حساب خارج شوید.');}
+  }
+  async function login(e){
+    e.preventDefault();if(authDisabled){await enterWithoutLogin();return;}
+    const u=$("loginUser").value.trim(), p=await hash($("loginPass").value);
+    const found=users.find(x=>x.username.toLowerCase()===u.toLowerCase()&&x.passwordHash===p&&x.active);
+    if(!found){$("loginError").hidden=false;return;}
+    current=found;$("loginError").hidden=true;$("authScreen").hidden=true;
+    document.body.classList.add("authenticated");
+    $("accountTools").hidden=false;
+    $("accountWelcome").textContent=`سلام، ${found.displayName}`;
+    updateAvatarUI();
+    applyAccess();await syncPasswordModeUI();
+  }
+  function updateAvatarUI(){
+    const mark=document.querySelector(".brand-mark");
+    if(mark)mark.innerHTML=current?.avatar?`<img src="${current.avatar}" alt="عکس پروفایل">`:avatarFallback(current?.displayName||"ک");
+    const welcome=$("accountWelcome");
+    if(welcome)welcome.innerHTML=`<span class="welcome-avatar">${current?.avatar?`<img src="${current.avatar}" alt="">`:avatarFallback(current?.displayName||"ک")}</span><span>سلام، ${safe(current?.displayName||"")}</span>`;
+  }
+  function can(permission){return current?.role==="admin"||!!current?.permissions?.includes(permission);}
+  function applyAccess(){
+    const showAssets=["assets_view","assets_add","assets_edit","assets_delete","assets_loan"].some(can),showReports=can("reports_view")||can("reports_export");
+    document.querySelector('[data-tab="assets"]').hidden=!showAssets;document.querySelector('[data-tab="reports"]').hidden=!showReports;
+    $("assets").hidden=!showAssets;$("reports").hidden=!showReports;
+    const first=document.querySelector('.tab[data-tab]:not([hidden])');
+    if(first){document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===first));document.querySelectorAll(".tab-panel").forEach(x=>x.classList.toggle("active",x===first.dataset.tab));}
+    const manage=$("manageUsersBtn")?.closest(".user-admin-panel");if(manage)manage.hidden=current.role!=="admin";
+    const adminMenu=$("adminMenuWrap");if(adminMenu)adminMenu.hidden=current.role!=="admin";
+    const reportCards=document.querySelectorAll("#reports .report-grid > article");
+    if(reportCards[0])reportCards[0].hidden=!can("reports_view");
+    if(reportCards[1])reportCards[1].hidden=!can("reports_view");
+    if(reportCards[2])reportCards[2].hidden=!can("reports_export");
+    if(reportCards[3])reportCards[3].hidden=!can("reports_view");
+    if(reportCards[4])reportCards[4].hidden=false;
+    if(reportCards[5])reportCards[5].hidden=current.role!=="admin";
+    const canEditAssets=can("assets_add")||can("assets_edit");
+    $("formPanel").hidden=!canEditAssets;$("tablePanel").hidden=!can("assets_view");$("summaryCards").hidden=!can("assets_view");
+    $("workspace").classList.toggle("form-hidden",!canEditAssets&&can("assets_view"));
+    $("importBtn").hidden=!can("assets_add");$("newAssetBtn").hidden=!can("assets_add");
+    ["exportBtn","exportAllExcelBtn","exportCsvBtn","exportFilteredPdfBtn","exportAllPdfBtn","backupBtn","restoreBtn"].forEach(id=>$(id).hidden=!can("reports_export"));
+    $("formPanel").querySelectorAll("input,select,textarea,button").forEach(el=>el.disabled=!(can("assets_add")||can("assets_edit")));
+    document.querySelectorAll("#reports button,#reports input,#reports select").forEach(el=>{if(!el.closest(".user-admin-panel"))el.disabled=!(can("reports_view")||can("reports_export"));});
+    document.querySelectorAll("[data-mobile-target=books]").forEach(b=>b.hidden=!showAssets);
+    document.querySelectorAll("[data-mobile-target=dashboard]").forEach(b=>b.hidden=!can("assets_view"));
+    document.querySelectorAll("[data-mobile-target=loans],[data-mobile-target=reports]").forEach(b=>b.hidden=!can("reports_view"));
+    window.SolhaAuth={can,isAdmin:()=>current?.role==="admin",reloadUsers:async()=>{await loadUsers();current=users.find(u=>u.id===current?.id)||users.find(u=>u.role==="admin");applyAccess();},refreshUI:applyAccess};window.solhaRender?.();
+  }
+  function logout(){if(authDisabled){toast("ورود بدون رمز فعال است؛ خروج در این حالت غیرفعال است.");return;}current=null;document.body.classList.remove("authenticated");$("accountTools").hidden=true;$("authScreen").hidden=false;$("loginPass").value="";$("loginUser").value="";}
+  async function showProfile(){
+    $("profileName").value=current.displayName;$("profileUsername").value=current.username;
+    $("profileAvatarPreview").src=current.avatar||"";
+    $("profileCurrentPass").value="";$("profileNewPass").value="";open("profileModal");
+  }
+  async function saveProfile(e){
+    e.preventDefault();
+    if(await hash($("profileCurrentPass").value)!==current.passwordHash){toast("رمز عبور فعلی درست نیست.");return;}
+    const username=$("profileUsername").value.trim();
+    if(users.some(x=>x.id!==current.id&&x.username.toLowerCase()===username.toLowerCase())){toast("این نام کاربری قبلاً استفاده شده است.");return;}
+    current.username=username;current.displayName=$("profileName").value.trim();
+    if($("profileNewPass").value)current.passwordHash=await hash($("profileNewPass").value);
+    await persist();updateAvatarUI();close("profileModal");toast("پروفایل با موفقیت به‌روزرسانی شد.");
+  }
+  function renderUsers(){if(current?.role!=="admin")return;
+    $("usersRows").innerHTML=users.map(u=>`<tr><td>${u.avatar?`<img class="user-table-avatar" src="${u.avatar}" alt="">`:avatarFallback(u.displayName)}</td><td>${safe(u.displayName)}</td><td>${safe(u.username)}</td><td>${u.active?"فعال":"غیرفعال"}</td><td>${u.role==="admin"?"همه":(u.permissions||[]).map(p=>labels[p]).join("، ")}</td><td><div class="row-actions">${u.id!=="admin"?`<button data-user-edit="${safe(u.id)}">ویرایش</button>`:"حساب مدیر اصلی"}${u.id!=="admin"?`<button class="delete" data-user-delete="${safe(u.id)}">حذف</button>`:""}</div></td></tr>`).join("");
+    $("usersRows").querySelectorAll("[data-user-edit]").forEach(b=>b.addEventListener("click",()=>editUser(b.dataset.userEdit)));
+    $("usersRows").querySelectorAll("[data-user-delete]").forEach(b=>b.addEventListener("click",async()=>{if(!confirm("این حساب حذف شود؟"))return;users=users.filter(u=>u.id!==b.dataset.userDelete);await persist();renderUsers();}));
+  }
+  function resetUserForm(){ $("userForm").reset();document.querySelectorAll(".user-perm").forEach(c=>c.checked=false);$("editUserId").value="";$("newPassword").required=true;$("newPassword").placeholder="رمز عبور";$("newUserAvatarPreview").removeAttribute("src");$("newUserAvatarPreview").hidden=true;}
+  function editUser(id){
+    const u=users.find(x=>x.id===id);if(!u||u.role==="admin")return;
+    $("editUserId").value=u.id;$("newDisplayName").value=u.displayName;$("newUsername").value=u.username;
+    $("newPassword").value="";$("newPassword").required=false;$("newPassword").placeholder="خالی بماند تا رمز تغییر نکند";
+    $("newUserActive").value=String(u.active);
+    $("newUserAvatarPreview").src=u.avatar||"";$("newUserAvatarPreview").hidden=!u.avatar;
+    document.querySelectorAll(".user-perm").forEach(c=>c.checked=(u.permissions||[]).includes(c.value));
+  }
+  async function saveUser(e){
+    e.preventDefault();if(current?.role!=="admin"){toast("فقط مدیر اصلی اجازهٔ مدیریت کاربران را دارد.");return;}
+    const id=$("editUserId").value, username=$("newUsername").value.trim();
+    if(users.some(u=>u.id!==id&&u.username.toLowerCase()===username.toLowerCase())){toast("نام کاربری تکراری است.");return;}
+    let u=users.find(x=>x.id===id);
+    if(id && (!u || u.role==="admin")){toast("حساب مدیر اصلی از این بخش قابل ویرایش نیست.");return;}
+    if(!u){u={id:makeId(),role:"user",permissions:[]};users.push(u);}
+    u.displayName=$("newDisplayName").value.trim();u.username=username;
+    // The built-in administrator cannot accidentally be disabled or demoted.
+    u.active = u.role === "admin" ? true : $("newUserActive").value === "true";
+    u.permissions=[...document.querySelectorAll(".user-perm:checked")].map(c=>c.value);
+    if(u.role === "admin") u.permissions=[...perms];
+    if($("newUserAvatarPreview").src && !$("newUserAvatarPreview").hidden)u.avatar=$("newUserAvatarPreview").src;
+    else if(!id)u.avatar="";
+    if($("newPassword").value)u.passwordHash=await hash($("newPassword").value);
+    if(!u.passwordHash){toast("برای حساب جدید رمز عبور تعیین کنید.");users=users.filter(x=>x!==u);return;}
+    await persist();resetUserForm();renderUsers();toast(id?"حساب کاربری ویرایش شد.":"کاربر جدید با موفقیت اضافه شد.");
+  }
+  async function start(){
+    inject();
+    try{await openDatabase(); await loadUsers(); const bypass=await DB.getSetting("auth_disabled");authDisabled=!!bypass?.value;await syncPasswordModeUI();if(authDisabled)await enterWithoutLogin();}catch(e){$("loginError").textContent="راه‌اندازی حساب‌ها ناموفق بود: "+e.message;$("loginError").hidden=false;}
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();
+})();
+</script>
+</body></html>
